@@ -1,0 +1,36 @@
+---
+title: Self-Hosting
+description: Run Dory in your own environment with Docker and explicit AI provider configuration.
+---
+
+# Self-Hosting
+
+The public repository currently documents a Docker-first path for running Dory yourself.
+
+## What self-hosting gives you
+
+- Control over deployment environment and credentials.
+- A browser-accessible Dory workspace for local or team evaluation.
+- Explicit configuration of the AI provider and model used by the product.
+
+## Core environment variables
+
+| Variable | Purpose |
+| --- | --- |
+| `DS_SECRET_KEY` | Secret used by the application runtime. |
+| `BETTER_AUTH_SECRET` | Secret used for authentication flows. |
+| `BETTER_AUTH_URL` | Public base URL for the running deployment. |
+| `DORY_AI_PROVIDER` | AI provider key such as `openai` or `anthropic`. |
+| `DORY_AI_MODEL` | Model name used by the chosen provider. |
+| `DORY_AI_API_KEY` | API key for the provider. |
+| `DORY_AI_URL` | Base URL when required by the provider or compatible endpoint. |
+
+## Operational caution
+
+- Treat AI credentials as deployment secrets.
+- Match the provider, model, and URL carefully. A mismatch can fail at runtime.
+- Review production authentication settings instead of reusing quick local defaults.
+
+## Current status
+
+The repository makes Docker deployment straightforward, but it does not yet present a complete long-form operations guide for backups, HA, or enterprise hardening. Plan to validate those areas before broader rollout.

@@ -1,0 +1,40 @@
+---
+title: AI Providers
+description: Configure the model provider used by Dory's AI features.
+---
+
+# AI Providers
+
+Dory uses a pluggable AI provider architecture. You can switch providers through environment variables without changing application code.
+
+## Providers listed in the public repository
+
+| Provider | `DORY_AI_PROVIDER` value | Notes |
+| --- | --- | --- |
+| OpenAI | `openai` | Uses the official OpenAI API. |
+| OpenAI-compatible | `openai-compatible` | For services exposing an OpenAI-compatible API. |
+| Anthropic | `anthropic` | Claude models via Anthropic's API. |
+| Google | `google` | Gemini models via Google Generative AI. |
+| Qwen | `qwen` | Qwen models through a compatible endpoint. |
+| xAI | `xai` | Grok models via xAI API. |
+
+## Required variables
+
+In practice you will usually need:
+
+```bash
+export DORY_AI_PROVIDER=openai
+export DORY_AI_MODEL=gpt-4o-mini
+export DORY_AI_API_KEY=your_api_key_here
+export DORY_AI_URL=https://api.openai.com/v1
+```
+
+## How to choose
+
+- Use OpenAI when you want the default documented path.
+- Use OpenAI-compatible when you already standardize on a compatible gateway or proxy.
+- Choose a provider based on model availability, latency, cost, and internal policy.
+
+## Limitation
+
+Provider support does not guarantee identical output quality. SQL generation quality will vary by model, schema complexity, and prompt clarity.

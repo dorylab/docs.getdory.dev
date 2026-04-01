@@ -1,0 +1,39 @@
+---
+title: Connections
+description: Connect supported databases and establish the schema context Dory uses everywhere else.
+---
+
+# Connections
+
+Connections are the foundation for the rest of Dory. Explorer, SQL Editor autocomplete, and AI features all depend on having an active database connection.
+
+## Supported databases
+
+The public repository currently lists:
+
+- ClickHouse
+- PostgreSQL
+- MySQL
+- MariaDB
+- SQLite
+
+DuckDB is listed as planned, not generally available.
+
+## Why connections matter
+
+Once connected, Dory can use live schema information to:
+
+- Suggest tables, columns, aliases, and functions in the editor.
+- Ground AI prompts in the real structure of the selected database.
+- Populate Explorer with driver-aware object browsing.
+
+## Recommended workflow
+
+1. Create a connection for the target environment.
+2. Confirm the correct database or schema is selected.
+3. Open [Explorer](./explorer) to verify object visibility.
+4. Move to [SQL Editor](./sql-editor) or [AI Chat](./ai-chat).
+
+## Limitation to keep in mind
+
+Feature depth is not identical across databases. The repository explicitly calls out deeper operational integration for ClickHouse than for other drivers.

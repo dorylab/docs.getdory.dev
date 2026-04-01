@@ -1,0 +1,67 @@
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
+
+:root {
+  --dory-ink: #121826;
+  --dory-muted: #5b6475;
+  --dory-line: rgba(18, 24, 38, 0.08);
+  --dory-warm: #f7f1e8;
+  --dory-orange: #ff6a3d;
+  --dory-gold: #f7b733;
+  --dory-panel: rgba(255, 255, 255, 0.82);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--dory-ink);
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(247, 183, 51, 0.28), transparent 30%),
+    radial-gradient(circle at right, rgba(255, 106, 61, 0.18), transparent 25%),
+    linear-gradient(180deg, #fcfaf6 0%, #f6f1e8 100%);
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+}
+
+a {
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
+}
+
+.dory-shell {
+  position: relative;
+}
+
+.dory-shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(18, 24, 38, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 24, 38, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), transparent 85%);
+}
+
+.hero-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 250, 244, 0.88));
+  border: 1px solid rgba(18, 24, 38, 0.08);
+  box-shadow: 0 20px 60px rgba(69, 44, 20, 0.1);
+}
+
+.hero-chip {
+  border: 1px solid rgba(18, 24, 38, 0.08);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--dory-muted);
+}
