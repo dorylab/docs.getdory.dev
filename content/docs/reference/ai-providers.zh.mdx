@@ -1,0 +1,40 @@
+---
+title: AI Providers
+description: 配置 Dory AI 功能所使用的模型提供商。
+---
+
+# AI Providers
+
+Dory 使用可插拔的 AI 提供商架构。你可以仅通过环境变量切换提供商，而不需要修改应用代码。
+
+## 公开仓库当前列出的提供商
+
+| 提供商 | `DORY_AI_PROVIDER` 值 | 说明 |
+| --- | --- | --- |
+| OpenAI | `openai` | 使用官方 OpenAI API。 |
+| OpenAI-compatible | `openai-compatible` | 适用于兼容 OpenAI API 的服务。 |
+| Anthropic | `anthropic` | 通过 Anthropic API 使用 Claude。 |
+| Google | `google` | 通过 Google Generative AI 使用 Gemini。 |
+| Qwen | `qwen` | 通过兼容端点接入 Qwen。 |
+| xAI | `xai` | 通过 xAI API 使用 Grok。 |
+
+## 常用环境变量
+
+通常至少需要以下配置：
+
+```bash
+export DORY_AI_PROVIDER=openai
+export DORY_AI_MODEL=gpt-4o-mini
+export DORY_AI_API_KEY=your_api_key_here
+export DORY_AI_URL=https://api.openai.com/v1
+```
+
+## 选择建议
+
+- 如果你需要最直接的默认路径，优先使用 OpenAI。
+- 如果团队已经统一接入兼容网关，可以使用 OpenAI-compatible。
+- 最终选择仍取决于模型可用性、延迟、成本与内部合规要求。
+
+## 限制说明
+
+提供商支持并不意味着输出质量完全一致。SQL 生成效果仍会受到模型能力、Schema 复杂度和提示语清晰度影响。

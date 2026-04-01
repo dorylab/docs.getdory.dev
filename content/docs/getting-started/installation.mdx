@@ -1,0 +1,44 @@
+---
+title: Installation
+description: Install Dory through Homebrew, GitHub releases, or Docker.
+---
+
+# Installation
+
+## Desktop installation
+
+### Homebrew on macOS
+
+```bash
+brew install dorylab/dory/dory
+```
+
+### Release downloads
+
+Use the GitHub releases page when you want a packaged desktop build for macOS or Windows:
+
+- `https://github.com/dorylab/dory/releases`
+
+## Docker installation
+
+The public repository currently documents this Docker launch example:
+
+```bash
+docker run -d --name dory \
+  -p 3000:3000 \
+  -e DS_SECRET_KEY="$(openssl rand -base64 32 | tr -d '\n')" \
+  -e BETTER_AUTH_SECRET="$(openssl rand -hex 32)" \
+  -e BETTER_AUTH_URL="http://localhost:3000" \
+  -e DORY_AI_PROVIDER=openai \
+  -e DORY_AI_MODEL=gpt-4o-mini \
+  -e DORY_AI_API_KEY=your_api_key_here \
+  -e DORY_AI_URL=https://api.openai.com/v1 \
+  dorylab/dory:latest
+```
+
+## Minimum configuration notes
+
+- `DS_SECRET_KEY` and `BETTER_AUTH_SECRET` should be unique per deployment.
+- `BETTER_AUTH_URL` should match the public URL you use to access Dory.
+- The AI-related environment variables are required if you want Dory's AI features to work.
+- For more deployment guidance, continue to [Self-Hosting](../deploy/self-hosting).
