@@ -4,12 +4,106 @@
 
 :root {
   --dory-ink: #121826;
+  --dory-ink-inverse: #f8fbff;
   --dory-muted: #5b6475;
   --dory-line: rgba(18, 24, 38, 0.08);
   --dory-warm: #f7f1e8;
   --dory-orange: #ff6a3d;
   --dory-gold: #f7b733;
-  --dory-panel: rgba(255, 255, 255, 0.82);
+  --dory-panel: rgba(255, 255, 255, 0.96);
+  --dory-background-color: #ffffff;
+  --dory-background-image: none;
+  --dory-grid-line: rgba(18, 24, 38, 0.03);
+  --dory-hero-background: #ffffff;
+  --dory-hero-shadow: 0 20px 60px rgba(18, 24, 38, 0.06);
+  --dory-chip-background: #ffffff;
+  --dory-surface-soft: #ffffff;
+  --dory-surface-strong: #ffffff;
+  --dory-surface-hover: #ffffff;
+}
+
+:root[class~='dark'],
+:root[data-theme='dark'],
+.dark {
+  --color-fd-background: rgb(17, 17, 17);
+  --color-fd-foreground: #e8eef7;
+  --color-fd-muted: rgb(17, 17, 17);
+  --color-fd-muted-foreground: #9eabc0;
+  --color-fd-popover: rgb(17, 17, 17);
+  --color-fd-popover-foreground: #dde6f2;
+  --color-fd-card: rgb(17, 17, 17);
+  --color-fd-card-foreground: #f3f7fb;
+  --color-fd-border: rgba(148, 163, 184, 0.16);
+  --color-fd-primary: #f3f7fb;
+  --color-fd-primary-foreground: #0d1522;
+  --color-fd-secondary: rgb(17, 17, 17);
+  --color-fd-secondary-foreground: #e8eef7;
+  --color-fd-accent: rgba(255, 255, 255, 0.08);
+  --color-fd-accent-foreground: #eff5ff;
+  --color-fd-ring: #7187a8;
+  --color-fd-overlay: rgba(2, 6, 23, 0.4);
+  --dory-ink: #e8eef7;
+  --dory-ink-inverse: #08111f;
+  --dory-muted: #9eabc0;
+  --dory-line: rgba(148, 163, 184, 0.16);
+  --dory-panel: rgb(17, 17, 17);
+  --dory-background-color: rgb(17, 17, 17);
+  --dory-background-image: none;
+  --dory-grid-line: rgba(148, 163, 184, 0.06);
+  --dory-hero-background: rgb(17, 17, 17);
+  --dory-hero-shadow: 0 24px 72px rgba(2, 8, 23, 0.3);
+  --dory-chip-background: rgb(17, 17, 17);
+  --dory-surface-soft: rgb(17, 17, 17);
+  --dory-surface-strong: rgb(17, 17, 17);
+  --dory-surface-hover: rgb(17, 17, 17);
+}
+
+:root[class~='dark'] #nd-sidebar,
+:root[data-theme='dark'] #nd-sidebar,
+.dark #nd-sidebar {
+  --color-fd-muted: rgb(17, 17, 17);
+  --color-fd-secondary: rgb(17, 17, 17);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']):not([class~='light']) {
+    --color-fd-background: rgb(17, 17, 17);
+    --color-fd-foreground: #e8eef7;
+    --color-fd-muted: rgb(17, 17, 17);
+    --color-fd-muted-foreground: #9eabc0;
+    --color-fd-popover: rgb(17, 17, 17);
+    --color-fd-popover-foreground: #dde6f2;
+    --color-fd-card: rgb(17, 17, 17);
+    --color-fd-card-foreground: #f3f7fb;
+    --color-fd-border: rgba(148, 163, 184, 0.16);
+    --color-fd-primary: #f3f7fb;
+    --color-fd-primary-foreground: #0d1522;
+    --color-fd-secondary: rgb(17, 17, 17);
+    --color-fd-secondary-foreground: #e8eef7;
+    --color-fd-accent: rgba(255, 255, 255, 0.08);
+    --color-fd-accent-foreground: #eff5ff;
+    --color-fd-ring: #7187a8;
+    --color-fd-overlay: rgba(2, 6, 23, 0.4);
+    --dory-ink: #e8eef7;
+    --dory-ink-inverse: #08111f;
+    --dory-muted: #9eabc0;
+    --dory-line: rgba(148, 163, 184, 0.16);
+    --dory-panel: rgb(17, 17, 17);
+    --dory-background-color: rgb(17, 17, 17);
+    --dory-background-image: none;
+    --dory-grid-line: rgba(148, 163, 184, 0.06);
+    --dory-hero-background: rgb(17, 17, 17);
+    --dory-hero-shadow: 0 24px 72px rgba(2, 8, 23, 0.3);
+    --dory-chip-background: rgb(17, 17, 17);
+    --dory-surface-soft: rgb(17, 17, 17);
+    --dory-surface-strong: rgb(17, 17, 17);
+    --dory-surface-hover: rgb(17, 17, 17);
+  }
+
+  :root:not([data-theme='light']):not([class~='light']) #nd-sidebar {
+    --color-fd-muted: rgb(17, 17, 17);
+    --color-fd-secondary: rgb(17, 17, 17);
+  }
 }
 
 html {
@@ -20,10 +114,9 @@ body {
   min-height: 100vh;
   color: var(--dory-ink);
   font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
-  background:
-    radial-gradient(circle at top, rgba(247, 183, 51, 0.28), transparent 30%),
-    radial-gradient(circle at right, rgba(255, 106, 61, 0.18), transparent 25%),
-    linear-gradient(180deg, #fcfaf6 0%, #f6f1e8 100%);
+  background-color: var(--dory-background-color);
+  background-image: var(--dory-background-image);
+  background-repeat: no-repeat;
 }
 
 code,
@@ -48,20 +141,101 @@ a {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(18, 24, 38, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(18, 24, 38, 0.03) 1px, transparent 1px);
+    linear-gradient(var(--dory-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--dory-grid-line) 1px, transparent 1px);
   background-size: 40px 40px;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), transparent 85%);
 }
 
 .hero-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 250, 244, 0.88));
-  border: 1px solid rgba(18, 24, 38, 0.08);
-  box-shadow: 0 20px 60px rgba(69, 44, 20, 0.1);
+  background: var(--dory-hero-background);
+  border: 1px solid var(--dory-line);
+  box-shadow: var(--dory-hero-shadow);
 }
 
 .hero-chip {
-  border: 1px solid rgba(18, 24, 38, 0.08);
-  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--dory-line);
+  background: var(--dory-chip-background);
   color: var(--dory-muted);
+}
+
+.dory-surface-soft {
+  background: var(--dory-surface-soft);
+}
+
+.dory-surface-strong {
+  background: var(--dory-surface-strong);
+}
+
+.dory-surface-hover:hover {
+  background: var(--dory-surface-hover);
+}
+
+.dory-button-primary {
+  background: var(--dory-ink);
+  color: var(--dory-ink-inverse);
+}
+
+.dory-button-secondary {
+  background: var(--dory-surface-soft);
+  color: var(--dory-ink);
+}
+
+.dory-button-secondary:hover {
+  background: var(--dory-surface-hover);
+}
+
+#nd-docs-layout {
+  color: var(--dory-ink);
+}
+
+#nd-page {
+  color: var(--dory-ink);
+}
+
+#nd-docs-layout .text-fd-muted-foreground {
+  color: var(--dory-muted);
+}
+
+#nd-docs-layout .text-fd-foreground,
+#nd-docs-layout .text-fd-primary,
+#nd-docs-layout .text-fd-secondary-foreground {
+  color: var(--dory-ink);
+}
+
+#nd-page .prose {
+  --tw-prose-body: color-mix(in oklab, var(--dory-ink) 88%, transparent);
+  --tw-prose-headings: var(--dory-ink);
+  --tw-prose-lead: color-mix(in oklab, var(--dory-muted) 90%, transparent);
+  --tw-prose-links: var(--dory-ink);
+  --tw-prose-bold: var(--dory-ink);
+  --tw-prose-counters: color-mix(in oklab, var(--dory-muted) 88%, transparent);
+  --tw-prose-bullets: color-mix(in oklab, var(--dory-muted) 72%, transparent);
+  --tw-prose-hr: var(--dory-line);
+  --tw-prose-quotes: var(--dory-ink);
+  --tw-prose-quote-borders: var(--dory-line);
+  --tw-prose-captions: var(--dory-muted);
+  --tw-prose-code: var(--dory-ink);
+  --tw-prose-kbd: var(--dory-ink);
+  --tw-prose-kbd-shadows: 18 24 38;
+  --tw-prose-pre-code: var(--dory-ink);
+  --tw-prose-pre-bg: var(--dory-panel);
+  --tw-prose-th-borders: var(--dory-line);
+  --tw-prose-td-borders: color-mix(in oklab, var(--dory-line) 88%, transparent);
+}
+
+:root[class~='dark'] #nd-docs-layout,
+:root[data-theme='dark'] #nd-docs-layout,
+.dark #nd-docs-layout,
+:root[class~='dark'] #nd-page,
+:root[data-theme='dark'] #nd-page,
+.dark #nd-page {
+  background-color: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']):not([class~='light']) #nd-docs-layout,
+  :root:not([data-theme='light']):not([class~='light']) #nd-page {
+    background-color: transparent;
+  }
 }

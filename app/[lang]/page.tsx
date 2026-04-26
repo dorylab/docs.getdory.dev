@@ -60,37 +60,37 @@ export default async function HomePage({
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-12 px-6 py-8 md:px-8 md:py-12">
       <div className="flex items-center justify-between">
-        <Link href={`/${lang}`} className="text-sm font-semibold tracking-wide text-[var(--dory-muted)]">
+        <Link href={`/${lang}`} className="text-(--dory-muted) text-sm font-semibold tracking-wide">
           Dory Docs
         </Link>
         <div className="flex items-center gap-3 text-sm">
-          <Link href={`/${lang}/docs`} className="text-[var(--dory-muted)] transition hover:text-[var(--dory-ink)]">
+          <Link href={`/${lang}/docs`} className="text-(--dory-muted) transition hover:text-(--dory-ink)">
             Docs
           </Link>
           <a
             href="https://github.com/dorylab/dory"
             target="_blank"
             rel="noreferrer"
-            className="text-[var(--dory-muted)] transition hover:text-[var(--dory-ink)]"
+            className="text-(--dory-muted) transition hover:text-(--dory-ink)"
           >
             GitHub
           </a>
         </div>
       </div>
 
-      <section className="hero-card grid gap-10 rounded-[2rem] p-8 md:grid-cols-[1.2fr_0.8fr] md:p-12">
+      <section className="hero-card grid gap-10 rounded-4xl p-8 md:grid-cols-[1.2fr_0.8fr] md:p-12">
         <div className="space-y-6">
           <div className="hero-chip inline-flex rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em]">
             {t.eyebrow}
           </div>
           <div className="space-y-4">
             <h1 className="max-w-3xl text-4xl font-semibold leading-tight md:text-6xl">{t.title}</h1>
-            <p className="max-w-2xl text-base leading-7 text-[var(--dory-muted)] md:text-lg">{t.description}</p>
+            <p className="text-(--dory-muted) max-w-2xl text-base leading-7 md:text-lg">{t.description}</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <Link
               href={`/${lang}/docs`}
-              className="inline-flex items-center gap-2 rounded-full bg-[var(--dory-ink)] px-5 py-3 text-sm font-medium text-white transition hover:translate-y-[-1px]"
+              className="dory-button-primary inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition hover:-translate-y-px"
             >
               {t.primary}
               <ArrowRight className="h-4 w-4" />
@@ -99,7 +99,7 @@ export default async function HomePage({
               href="https://app.getdory.dev"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-[var(--dory-line)] bg-white/70 px-5 py-3 text-sm font-medium text-[var(--dory-ink)] transition hover:bg-white"
+              className="dory-button-secondary inline-flex items-center gap-2 rounded-full border border-(--dory-line) px-5 py-3 text-sm font-medium transition"
             >
               {t.secondary}
             </a>
@@ -110,12 +110,12 @@ export default async function HomePage({
           {t.cards.map(([title, body], index) => (
             <article
               key={title}
-              className={`rounded-[1.5rem] border border-[var(--dory-line)] bg-white/75 p-5 ${
+              className={`dory-surface-strong rounded-3xl border border-(--dory-line) p-5 ${
                 index === 0 ? 'sm:col-span-2' : ''
               }`}
             >
               <h2 className="text-lg font-semibold">{title}</h2>
-              <p className="mt-2 text-sm leading-6 text-[var(--dory-muted)]">{body}</p>
+              <p className="text-(--dory-muted) mt-2 text-sm leading-6">{body}</p>
             </article>
           ))}
         </div>
@@ -123,22 +123,22 @@ export default async function HomePage({
 
       <section className="grid gap-4 md:grid-cols-3">
         {t.sections.map(([title, body]) => (
-          <article key={title} className="rounded-[1.5rem] border border-[var(--dory-line)] bg-[var(--dory-panel)] p-6 backdrop-blur">
+          <article key={title} className="rounded-3xl border border-(--dory-line) bg-(--dory-panel) p-6 backdrop-blur">
             <h2 className="text-lg font-semibold">{title}</h2>
-            <p className="mt-2 text-sm leading-6 text-[var(--dory-muted)]">{body}</p>
+            <p className="text-(--dory-muted) mt-2 text-sm leading-6">{body}</p>
           </article>
         ))}
       </section>
 
-      <section className="grid gap-3 rounded-[2rem] border border-[var(--dory-line)] bg-white/70 p-6 md:grid-cols-6">
+      <section className="dory-surface-soft grid gap-3 rounded-4xl border border-(--dory-line) p-6 md:grid-cols-6">
         {features.map(({ icon: Icon, href }) => (
           <Link
             key={href}
             href={`/${lang}/${href}`}
-            className="group flex min-h-24 flex-col justify-between rounded-[1.25rem] border border-transparent bg-white/70 p-4 transition hover:border-[var(--dory-line)] hover:bg-white"
+            className="dory-surface-soft dory-surface-hover group flex min-h-24 flex-col justify-between rounded-2xl border border-transparent p-4 transition hover:border-(--dory-line)"
           >
-            <Icon className="h-5 w-5 text-[var(--dory-orange)]" />
-            <span className="text-sm font-medium text-[var(--dory-muted)] group-hover:text-[var(--dory-ink)]">
+            <Icon className="text-(--dory-orange) h-5 w-5" />
+            <span className="text-(--dory-muted) group-hover:text-(--dory-ink) text-sm font-medium">
               {href.replace('docs/', '')}
             </span>
           </Link>

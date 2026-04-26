@@ -1,0 +1,10 @@
+{
+  "title": "Deploy",
+  "pages": [
+    "self-hosting",
+    "docker",
+    "environment-variables",
+    "auth-sso",
+    "team-setup"
+  ]
+}

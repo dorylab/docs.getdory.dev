@@ -1,0 +1,20 @@
+---
+title: Docker
+description: 通过容器运行 Dory，适合评估和浏览器访问场景。
+---
+
+# Docker
+
+Docker 是在浏览器环境中运行 Dory 的最直接方式之一，也适合快速评估部署流程。
+
+## 基础运行命令
+
+```bash
+docker run -p 3000:3000 dorylab/dory:latest
+```
+
+## 常见下一步
+
+- 增加持久化配置。
+- 安全挂载 Secret。
+- 通过内部代理暴露服务。

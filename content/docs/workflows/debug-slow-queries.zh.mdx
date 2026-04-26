@@ -1,0 +1,16 @@
+---
+title: Debug Slow Queries
+description: 用可重复的方法定位高成本 SQL 问题。
+---
+
+# Debug Slow Queries
+
+先缩小查询范围，再逐个验证高成本操作，通常是定位性能问题最快的方式。
+
+## 检查清单
+
+- 缩小数据时间范围。
+- 检查 Join 和 Group By。
+- 去掉非必要列。
+- 单独测试过滤条件。
+- 让 AI 提供替代写法，但要人工审查其成本。

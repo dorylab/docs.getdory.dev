@@ -1,0 +1,10 @@
+{
+  "title": "Workflows",
+  "pages": [
+    "explore-unknown-tables",
+    "generate-sql-with-ai",
+    "debug-slow-queries",
+    "build-charts-from-sql",
+    "save-reuse-analysis"
+  ]
+}
