@@ -1,26 +1,84 @@
 ---
 title: Connect Your Database
-description: 创建连接，让 Dory 为浏览、SQL 和 AI 加载数据库 Schema 上下文。
+description: 连接你的数据库，让 Dory 加载 Schema 上下文，并启用 SQL Editor、Explorer 与 AI 能力。
 ---
 
 # Connect Your Database
 
-连接是 Dory 其余能力的基础。Explorer、SQL 自动补全以及 AI 上下文都依赖一个可用的数据库连接。
+连接数据库后，Dory 才能完整发挥价值。数据库连接会为 SQL Editor、Explorer、自动补全、AI Chat 与结果分析提供实时上下文。
+
+## 支持的数据库
+
+Dory 当前重点支持以下数据库：
+
+- ClickHouse
+- PostgreSQL
+- MySQL
+- MariaDB
+- SQLite
+
+完整兼容情况请查看 [数据库支持](../database-support)。
 
 ## 连接前准备
 
-- 确认数据库主机可以从你的机器或部署环境访问。
-- 准备好主机名、端口、数据库名、用户名和密码。
-- 明确当前连接的是生产、预发还是本地环境。
+在创建连接前，请先确认以下信息：
 
-## 推荐流程
+- 数据库主机地址（Host）
+- 端口（Port）
+- 数据库名称（Database）
+- 用户名（Username）
+- 密码（Password）
+- 是否需要 SSL / TLS
+- 当前环境（生产、测试、本地开发）
 
-1. 在 Dory 中打开连接配置界面。
-2. 选择数据库类型。
-3. 填写凭据和网络信息。
-4. 保存前先测试连接。
-5. 打开 [Explorer](../core-features/explorer) 确认 Schema 已正确加载。
+## 推荐连接流程
 
-## 支持的驱动
+1. 在 Dory 中打开 **Connections**。
+2. 点击 **New Connection**。
+3. 选择数据库类型。
+4. 输入连接信息与认证凭据。
+5. 点击 **Test Connection** 验证可用性。
+6. 保存连接并进入数据库工作区。
 
-当前支持矩阵和部署说明请查看 [数据库支持](../database-support)。
+## 连接成功后你可以做什么
+
+### Explorer
+
+浏览数据库、Schema、表结构、字段与对象信息。
+
+### SQL Editor
+
+获得更好的 SQL 自动补全、表名提示与上下文编辑体验。
+
+### AI Chat
+
+AI 可以基于数据库结构生成 SQL、解释查询并辅助分析结果。
+
+## 常见问题排查
+
+### 无法连接数据库
+
+请确认：
+
+- 主机与端口填写正确。
+- 数据库允许当前设备访问。
+- 云数据库安全组 / 防火墙已放行。
+- 用户名密码正确。
+
+### AI 看不到表结构
+
+请先确认连接成功，并重新进入工作区等待 Schema 加载完成。
+
+### ClickHouse 连接失败
+
+如果你使用 ClickHouse Cloud，通常需要使用 HTTPS / TLS 地址与正确端口。
+
+## 安全建议
+
+- 为生产库使用只读账号更安全。
+- 不建议多个成员共享管理员账号。
+- 定期轮换数据库密码与访问凭据。
+
+## 下一步
+
+连接完成后，继续查看 [First Query in 3 Minutes](./first-query-in-3-minutes)。

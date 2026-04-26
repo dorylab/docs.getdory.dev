@@ -1,28 +1,53 @@
 ---
 title: Quick Start
-description: The fastest path from zero to a working Dory session.
+description: 用最短路径体验 Dory，在几分钟内完成安装、连接数据库并运行第一条查询。
 ---
 
 # Quick Start
 
-Use this path if you want to see Dory working with minimal setup.
+如果你希望用最短时间体验 Dory，这里是推荐路径。按照本页步骤操作，你可以在几分钟内完成安装并开始使用。
 
-## Option 1: Try the live demo
+## 路径 1：在线体验 Demo
 
-Open `https://app.getdory.dev` and choose **Enter as Demo**.
+立即打开 `https://app.getdory.dev`，选择 **Enter as Demo**。
 
-## Option 2: Install locally
+适合你如果：
 
-On macOS, install the desktop runtime with Homebrew:
+- 想快速了解界面与核心体验。
+- 暂时没有数据库连接信息。
+- 希望先试用 SQL Editor 与 AI 能力。
+
+## 路径 2：本地安装（推荐）
+
+如果你希望连接自己的数据库，推荐安装桌面版 Dory。
+
+### macOS（Homebrew）
 
 ```bash
 brew install dorylab/dory/dory
 ```
 
-If you prefer containers or browser access, continue to [Installation](./installation).
+安装完成后启动 Dory，并继续完成数据库连接。
 
-## What to do next
+### 其他安装方式
 
-1. Complete [Connect Your Database](./connect-your-database).
-2. Run your [First Query in 3 Minutes](./first-query-in-3-minutes).
-3. Explore the [SQL Editor](../core-features/sql-editor) and [AI Chat](../core-features/ai-chat).
+如果你希望使用 Docker、本地服务或其他运行方式，请查看 [Installation](./installation)。
+
+## 安装后建议操作
+
+完成安装或进入 Demo 后，建议按以下顺序体验：
+
+1. 完成 [Connect Your Database](./connect-your-database)。
+2. 运行 [First Query in 3 Minutes](./first-query-in-3-minutes)。
+3. 打开 [SQL Editor](../core-features/sql-editor) 编写查询。
+4. 使用 [AI Chat](../core-features/ai-chat) 生成 SQL、解释结果或优化语句。
+
+## Quick Tips
+
+- 第一次使用，建议先连接测试数据库快速熟悉流程。
+- 使用 AI 功能时，连接数据库后效果最佳，因为 Dory 可以理解 Schema 上下文。
+- 如果你来自 DataGrip、DBeaver 或 TablePlus，可直接把 Dory 当作现代 SQL 工作台开始使用。
+
+## 下一步
+
+准备好了？继续查看 [Connect Your Database](./connect-your-database)。

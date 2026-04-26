@@ -1,21 +1,43 @@
 ---
 title: First Query in 3 Minutes
-description: 用几分钟完成连接、查看 Schema，并跑通一条有用的第一条查询。
+description: 用几分钟完成连接验证、查看 Schema，并运行你的第一条有价值查询。
 ---
 
 # First Query in 3 Minutes
 
-这个流程可以最快确认你的连接、Schema 可见性和查询执行链路都已经正常工作。
+这是体验 Dory 价值最快的方式。完成本页步骤后，你将确认数据库连接正常、Schema 已加载，并完成第一轮查询分析。
 
-## 1. 打开 Explorer
+## 开始之前
 
-先在 [Explorer](../core-features/explorer) 中查看一个真实的数据表。
+请先确保你已经完成：
+
+- [Installation](./installation)
+- [Connect Your Database](./connect-your-database)
+
+## 1. 打开 Explorer 查看数据结构
+
+进入 [Explorer](../core-features/explorer)，选择一个数据库与数据表。
+
+建议优先查看：
+
+- 用户表（users）
+- 订单表（orders）
+- 事件表（events）
+- 日志表（logs）
+
+这一步可以帮助你快速理解字段结构与可分析数据。
 
 ## 2. 打开 SQL Editor
 
-新建一个查询标签页，观察自动补全是否能正确识别表和字段。
+新建一个查询标签页，确认：
 
-## 3. 运行一条安全查询
+- 编辑器已连接当前数据库
+- 表名可以自动补全
+- 字段提示正常显示
+
+如果这些能力正常，说明 Dory 已成功加载上下文。
+
+## 3. 运行第一条安全查询
 
 ```sql
 select *
@@ -23,10 +45,55 @@ from your_table
 limit 20;
 ```
 
-## 4. 让 AI 帮你改进
+推荐先使用 `limit` 查询少量数据，快速验证：
 
-打开 [AI Chat](../core-features/ai-chat)，让它帮你补过滤条件、分组或生成适合图表展示的 SQL。
+- SQL 执行链路正常
+- 表数据可访问
+- 返回结果格式正确
 
-## 5. 保存结果
+## 4. 用 AI 生成下一步查询
 
-如果你后续还会复用这条分析，把它保存到 [Saved Queries](../core-features/saved-queries)。
+打开 [AI Chat](../core-features/ai-chat)，例如输入：
+
+- 帮我统计最近 7 天数据量趋势
+- 找出增长最快的用户来源
+- 按城市统计订单数量
+- 生成适合柱状图展示的 SQL
+
+此时 AI 会结合当前数据库结构生成更准确的 SQL。
+
+## 5. 查看结果并转换图表
+
+查询成功后，你可以切换到图表视图，快速生成：
+
+- 折线图（趋势）
+- 柱状图（分类对比）
+- 饼图（占比结构）
+- 表格（明细分析）
+
+## 6. 保存你的第一条分析
+
+如果这条查询后续还会复用，建议保存到 [Saved Queries](../core-features/saved-queries)。
+
+这会帮助你逐步沉淀个人或团队的数据工作流。
+
+## 常见问题
+
+### 没有自动补全
+
+请确认数据库连接成功，并等待 Schema 加载完成。
+
+### 查询报错
+
+请先检查表名、字段名和当前数据库是否正确。
+
+### AI 结果不准确
+
+连接真实数据库并加载 Schema 后，效果通常会明显提升。
+
+## 下一步推荐
+
+- 深入使用 [SQL Editor](../core-features/sql-editor)
+- 学习 [AI Chat](../core-features/ai-chat)
+- 浏览 [Explorer](../core-features/explorer)
+- 查看 [Saved Queries](../core-features/saved-queries)
