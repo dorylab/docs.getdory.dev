@@ -3,9 +3,7 @@ import { notFound } from 'next/navigation';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import {
   DocsBody,
-  DocsDescription,
-  DocsPage,
-  DocsTitle
+  DocsPage
 } from 'fumadocs-ui/layouts/docs/page';
 
 import { getMDXComponents } from '@/mdx-components';
@@ -49,8 +47,6 @@ export default async function DocPage({
 
   return (
     <DocsPage toc={page.data.toc} full={false}>
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
         <MDX
           components={getMDXComponents({
