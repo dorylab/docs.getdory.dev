@@ -3,6 +3,23 @@
 @import 'fumadocs-ui/css/preset.css';
 
 :root {
+  --color-fd-background: #ffffff;
+  --color-fd-foreground: #121826;
+  --color-fd-muted: #ffffff;
+  --color-fd-muted-foreground: #5b6475;
+  --color-fd-popover: #ffffff;
+  --color-fd-popover-foreground: #121826;
+  --color-fd-card: #ffffff;
+  --color-fd-card-foreground: #121826;
+  --color-fd-border: rgba(18, 24, 38, 0.08);
+  --color-fd-primary: #121826;
+  --color-fd-primary-foreground: #ffffff;
+  --color-fd-secondary: #ffffff;
+  --color-fd-secondary-foreground: #121826;
+  --color-fd-accent: #ffffff;
+  --color-fd-accent-foreground: #121826;
+  --color-fd-ring: rgba(18, 24, 38, 0.18);
+  --color-fd-overlay: rgba(18, 24, 38, 0.08);
   --dory-ink: #121826;
   --dory-ink-inverse: #f8fbff;
   --dory-muted: #5b6475;
@@ -10,7 +27,7 @@
   --dory-warm: #f7f1e8;
   --dory-orange: #ff6a3d;
   --dory-gold: #f7b733;
-  --dory-panel: rgba(255, 255, 255, 0.96);
+  --dory-panel: #ffffff;
   --dory-background-color: #ffffff;
   --dory-background-image: none;
   --dory-grid-line: rgba(18, 24, 38, 0.03);
@@ -20,6 +37,16 @@
   --dory-surface-soft: #ffffff;
   --dory-surface-strong: #ffffff;
   --dory-surface-hover: #ffffff;
+}
+
+#nd-sidebar,
+[data-sidebar-panel] {
+  --color-fd-background: #ffffff;
+  --color-fd-muted: #ffffff;
+  --color-fd-popover: #ffffff;
+  --color-fd-card: #ffffff;
+  --color-fd-secondary: #ffffff;
+  --color-fd-accent: #ffffff;
 }
 
 :root[class~='dark'],
