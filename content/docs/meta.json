@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "getting-started",
+    "core-features",
+    "database-support",
+    "workflows",
+    "deploy",
+    "reference",
+    "release-notes"
+  ]
+}

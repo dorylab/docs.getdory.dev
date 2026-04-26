@@ -1,0 +1,11 @@
+{
+  "title": "Getting Started",
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "quick-start",
+    "installation",
+    "connect-your-database",
+    "first-query-in-3-minutes"
+  ]
+}

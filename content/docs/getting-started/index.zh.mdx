@@ -1,32 +1,30 @@
 ---
-title: 快速开始
-description: 从零到可用 Dory 工作空间的最短路径。
+title: 介绍
+description: 了解 Dory 是什么、文档如何组织，以及应该从哪里开始。
 ---
 
-# 快速开始
+# 介绍
 
-你可以通过三种方式快速体验 Dory：
+Dory 是面向现代数据库的 AI 原生数据工作台。它把 Schema 感知的 SQL 编辑器、对话式 AI、数据库浏览、保存查询与图表分析整合在同一个工作空间中。
 
-## 1. 使用在线演示
+## 你可以用 Dory 做什么
 
-打开 `https://app.getdory.dev`，选择 **Enter as Demo**。这是无需本地安装即可体验界面的最快方式。
+- 连接 ClickHouse、PostgreSQL、MySQL、SQLite 等受支持数据库。
+- 在写 SQL 之前先浏览表、字段和对象结构。
+- 在编辑器中编写、运行并迭代 SQL。
+- 使用带 Schema 上下文的 AI Chat 生成、解释和调试查询。
+- 保存分析结果，并将查询结果转换为图表。
 
-## 2. 安装本地桌面版
+## 建议阅读顺序
 
-在 macOS 上可以直接使用 Homebrew：
+1. 先看 [Quick Start](./quick-start)。
+2. 按照 [安装说明](./installation) 完成本地或团队环境准备。
+3. 完成 [连接数据库](./connect-your-database)。
+4. 按照 [3 分钟跑通第一条查询](./first-query-in-3-minutes) 熟悉基础流程。
 
-```bash
-brew install dorylab/dory/dory
-```
+## 然后继续了解产品能力
 
-也可以从 GitHub Releases 下载桌面安装包。
-
-## 3. 使用 Docker 运行 Dory
-
-如果你想在本地浏览器环境运行 Dory，或者正在评估自托管，请继续阅读 [安装说明](./installation)。
-
-## 下一步
-
-- 创建第一个 [数据库连接](../guides/connections)。
-- 打开 [SQL Editor](../guides/sql-editor)。
-- 基于真实 Schema 试用 [AI Chat](../guides/ai-chat)。
+- 学习 [SQL Editor](../core-features/sql-editor)。
+- 试用 [AI Chat](../core-features/ai-chat)。
+- 浏览 [数据库支持](../database-support)。
+- 在团队部署前查看 [Deploy](../deploy)。

@@ -1,0 +1,10 @@
+{
+  "title": "Database Support",
+  "pages": [
+    "clickhouse",
+    "postgresql",
+    "mysql",
+    "sqlite",
+    "cloud-databases"
+  ]
+}

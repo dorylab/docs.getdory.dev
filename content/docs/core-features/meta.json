@@ -1,0 +1,11 @@
+{
+  "title": "Core Features",
+  "pages": [
+    "sql-editor",
+    "ai-chat",
+    "explorer",
+    "charts-results",
+    "saved-queries",
+    "connections"
+  ]
+}
