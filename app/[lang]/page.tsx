@@ -11,7 +11,7 @@ const copy = {
     secondary: 'Try demo',
     cards: [
       ['Quick start', 'Choose demo, desktop, or Docker and get to a running workspace fast.'],
-      ['Database workflows', 'Connections, Explorer, SQL Editor, charts, and saved analysis patterns.'],
+      ['Database workflows', 'Connections, Explorer, SQL Console, charts, and saved analysis patterns.'],
       ['AI behavior', 'What Dory’s AI can do, how provider selection works, and current limitations.']
     ],
     sections: [
@@ -29,7 +29,7 @@ const copy = {
     secondary: '打开演示',
     cards: [
       ['快速开始', '根据试用、桌面版或 Docker 场景选择最合适的安装方式。'],
-      ['数据库工作流', '覆盖连接、Explorer、SQL Editor、图表与常用查询管理。'],
+      ['数据库工作流', '覆盖连接、Explorer、SQL 控制台、图表与常用查询管理。'],
       ['AI 能力说明', '解释 Dory 的 AI 能做什么、如何切换提供商、有哪些限制。']
     ],
     sections: [
