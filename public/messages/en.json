@@ -367,6 +367,92 @@
             }
           ]
         },
+        "dailyWorkflow": {
+          "label": "Daily SQL workflow",
+          "title": "More than writing SQL. Understand, visualize, and preserve the entire exploration.",
+          "description": "Move from an unfamiliar schema to reusable analysis without leaving the same workspace.",
+          "docsLabel": "Explore the documentation",
+          "explorer": {
+            "label": "Explorer",
+            "title": "Understand the database before you write SQL",
+            "description": "Navigate real database objects, inspect table details, and confirm the shape of the data before committing to a query.",
+            "imageAlt": "Dory Explorer showing a ClickHouse table overview, schema navigation, and metadata-backed summary",
+            "features": [
+              {
+                "title": "Navigate real database objects",
+                "description": "Browse databases, schemas, tables, views, and materialized views directly from the active connection."
+              },
+              {
+                "title": "Understand a table at a glance",
+                "description": "Review a metadata-backed summary and key fields before deciding how to query the table."
+              },
+              {
+                "title": "Move between preview, structure, and stats",
+                "description": "Check sample rows, column types, storage details, and table scale without leaving Explorer."
+              }
+            ]
+          },
+          "charts": {
+            "label": "Charts",
+            "title": "Move from results to charts without leaving the workspace",
+            "description": "Turn the result you just verified into a visual, while keeping the SQL, rows, and chart together.",
+            "imageAlt": "Dory SQL workspace showing a monthly revenue query and an interactive line chart built from its result",
+            "features": [
+              {
+                "title": "Switch from rows to a visual",
+                "description": "Use the same query result in Table or Charts view instead of rebuilding the analysis elsewhere."
+              },
+              {
+                "title": "Map dimensions and metrics",
+                "description": "Choose the chart type, X and Y fields, aggregation, and grouping that fit the result."
+              },
+              {
+                "title": "Keep the evidence with the query",
+                "description": "The chart stays attached to the SQL and Result Set that produced it, ready for review and iteration."
+              }
+            ]
+          },
+          "savedQueries": {
+            "label": "Saved Queries",
+            "title": "Turn verified queries into reusable assets",
+            "description": "Give useful SQL a durable home so you can find it, rerun it, and continue refining it later.",
+            "imageAlt": "Dory Saved Queries showing organized SQL alongside its result and AI context",
+            "features": [
+              {
+                "title": "Organize useful SQL",
+                "description": "Save a query with a clear title, description, and folder once it has been verified."
+              },
+              {
+                "title": "Find and reopen it quickly",
+                "description": "Search the saved collection and open any query back into a full workspace tab."
+              },
+              {
+                "title": "Continue from the same context",
+                "description": "Edit, rerun, chart, or ask AI about the saved SQL without reconstructing the analysis."
+              }
+            ]
+          },
+          "queryHistory": {
+            "label": "Query History",
+            "title": "Every execution is recorded, ready when you return",
+            "description": "Review what ran, what failed, and which results are still available—then continue from the exact attempt you need.",
+            "imageAlt": "Dory Query History showing successful, canceled, and failed queries with persisted results",
+            "features": [
+              {
+                "title": "Capture every execution",
+                "description": "Keep the SQL, status, timestamp, and duration of each run without saving it manually."
+              },
+              {
+                "title": "Keep failures visible",
+                "description": "Canceled and failed attempts retain their error details, making investigation easier."
+              },
+              {
+                "title": "Reopen persisted results",
+                "description": "Return to any available Result Set and continue filtering, charting, or editing the SQL."
+              }
+            ]
+          }
+        },
         "handoff": {
           "title": "Never start over from an agent transcript.",
           "description": "Completed Agent Runs open as SQL tabs, result sets, findings, and activity. Edit the SQL, add analysis, and hand the updated workspace back to an agent.",

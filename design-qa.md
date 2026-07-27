@@ -147,4 +147,63 @@ The earlier SQL Editor work removed the generic black screenshot wrapper, elimin
 - `npm run types:check`: passed.
 - `git diff --check`: passed.
 
+## For Humans 日常 SQL 主线（2026-07-27）
+
+### Source visual truth
+
+- Reference cadence: [DB Pro](https://www.dbpro.app/) feature rows with large product imagery, short value copy, and alternating image/copy alignment.
+- Reference capture: `/tmp/dbpro-feature-pattern-final-1280x720.png` (1280 × 720 px, 1280 × 720 CSS px, device scale 1).
+- Approved implementation scope: add Explorer, Charts, Saved Queries, and Query History after Workspace and before Agent Handoff without changing the existing first three acts or later Agent, Control, and AI content.
+- Dory product assets:
+  - `/Users/jeffrey/Documents/Code/Dory/www/public/images/core-features/dory-explorer-table-overview.png`
+  - `/Users/jeffrey/Documents/Code/Dory/www/public/images/core-features/dory-desktop-sql-console-sqlite-charts.png`
+  - `/Users/jeffrey/Documents/Code/Dory/www/public/images/core-features/play-saved-queries.png`
+  - `/Users/jeffrey/Documents/Code/Dory/www/public/images/core-features/play-query-history.png`
+
+### Implementation screenshots
+
+- Final Explorer desktop: `/tmp/dory-for-humans-explorer-final-1280x720.png` (1280 × 720 px).
+- Charts desktop: `/tmp/dory-for-humans-charts-1280x720.png` (1280 × 720 px).
+- Saved Queries desktop: `/tmp/dory-for-humans-saved-queries-1280x720.png` (1280 × 720 px).
+- Query History desktop: `/tmp/dory-for-humans-query-history-1280x720.png` (1280 × 720 px).
+- English desktop: `/tmp/dory-for-humans-daily-en-1280x720.png` (1280 × 720 px).
+- Final Japanese desktop: `/tmp/dory-for-humans-daily-ja-final-1280x720.png` (1280 × 720 px).
+- Spanish desktop: `/tmp/dory-for-humans-daily-es-1280x720.png` (1280 × 720 px).
+- Dark-theme intro: `/tmp/dory-for-humans-daily-dark-1280x720.png` (1280 × 720 px).
+- Dark-theme Explorer: `/tmp/dory-for-humans-explorer-dark-1280x720.png` (1280 × 720 px).
+- Explorer mobile: `/tmp/dory-for-humans-explorer-390x844.png` (390 × 844 px).
+- Query History mobile: `/tmp/dory-for-humans-query-history-390x844.png` (390 × 844 px).
+
+### Combined comparison evidence
+
+- Reference/implementation desktop comparison: `/tmp/dory-dbpro-feature-comparison-2560x720.png` (2560 × 720 px). Both inputs use the same 1280 × 720 viewport. The implementation adopts DB Pro's alternating editorial cadence while intentionally retaining Dory's warm background, typography, dividing rules, numbered value points, and painted product frame.
+- Mobile beginning/end comparison: `/tmp/dory-for-humans-mobile-comparison-780x844.png` (780 × 844 px). Both inputs use the same 390 × 844 viewport and confirm copy-first ordering at the beginning and end of the four-row sequence.
+- Product screenshots retain their native aspect ratios inside `PaintedProductFrame`. No crop, stretch, placeholder, or reconstructed UI is present.
+
+### Fidelity surfaces
+
+- Typography: existing Dory Geist/CJK typography and responsive sizes are preserved. English, Chinese, Japanese, and Spanish headings wrap without clipping. The Japanese transition title was shortened after an awkward initial wrap was found.
+- Spacing and layout: desktop rows use the approved 40/60 copy/media split and alternate alignment; mobile rows use one column with label, title, description, three numbered points, documentation link, then screenshot.
+- Colors and tokens: the implementation uses existing warm surface, border, muted-text, and accent tokens. Light and dark themes retain a clear boundary between the dark screenshots and the painted frame.
+- Image quality: all four images are existing static product captures and render at proportional dimensions with sufficient source density.
+- Copy and navigation: all four locales contain the transition copy, four feature groups, three benefits per feature, image alt text, and localized documentation links. The Explorer documentation link was opened successfully at `/zh/docs/core-features/explorer`.
+
+### Findings and comparison history
+
+1. P1 — The first implementation placed the new daily-workflow section before Workspace. The DOM order check exposed the mismatch; the section was moved after Workspace and before Agent Handoff, then rechecked.
+2. P2 — The initial Japanese transition title produced an awkward desktop line break. The translation was tightened without changing meaning; `/tmp/dory-for-humans-daily-ja-final-1280x720.png` confirms the corrected wrap.
+3. Post-fix — Desktop, mobile, locale, and dark-theme comparisons show no remaining actionable P0, P1, or P2 issue.
+4. P3 — The Next.js development console reports the existing `scroll-behavior: smooth` warning. It is unrelated to these sections and does not reproduce as a type or production-build failure.
+
+### Verification
+
+- Message JSON parsing and required-key shape for `en`, `zh`, `ja`, and `es`: passed.
+- Desktop 1280 × 720 layout, alternating order, screenshot ratio, and horizontal overflow: passed.
+- Mobile 390 × 844 copy-first order, long-title wrapping, screenshot ratio, and horizontal overflow: passed.
+- Light and dark theme boundary/contrast checks: passed.
+- Localized documentation link interaction: passed.
+- Type check: passed.
+- Production build: passed.
+- `git diff --check`: passed.
+
 final result: passed

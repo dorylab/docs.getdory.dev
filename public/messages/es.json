@@ -127,6 +127,92 @@
             }
           ]
         },
+        "dailyWorkflow": {
+          "label": "Flujo SQL diario",
+          "title": "Más que escribir SQL. Comprende, visualiza y conserva todo el proceso de exploración.",
+          "description": "Pasa de un esquema desconocido a un análisis reutilizable sin salir del mismo Workspace.",
+          "docsLabel": "Explorar la documentación",
+          "explorer": {
+            "label": "Explorer",
+            "title": "Comprende la base de datos antes de escribir SQL",
+            "description": "Navega por objetos reales, revisa los detalles de las tablas y confirma la forma de los datos antes de crear una consulta.",
+            "imageAlt": "Dory Explorer con el Overview de una tabla de ClickHouse, navegación del Schema y un resumen basado en metadatos",
+            "features": [
+              {
+                "title": "Navega por objetos reales",
+                "description": "Explora bases de datos, esquemas, tablas, vistas y vistas materializadas desde la conexión activa."
+              },
+              {
+                "title": "Comprende una tabla de un vistazo",
+                "description": "Revisa un Summary y campos clave basados en metadatos reales antes de decidir cómo consultar la tabla."
+              },
+              {
+                "title": "Alterna entre Preview, Structure y Stats",
+                "description": "Comprueba filas de muestra, tipos de columnas, almacenamiento y escala sin salir de Explorer."
+              }
+            ]
+          },
+          "charts": {
+            "label": "Charts",
+            "title": "Pasa de los resultados a los gráficos sin salir del Workspace",
+            "description": "Convierte el resultado que acabas de validar en una visualización y conserva juntos el SQL, las filas y el gráfico.",
+            "imageAlt": "Workspace SQL de Dory con una consulta de ingresos mensuales y un gráfico de líneas interactivo creado con su resultado",
+            "features": [
+              {
+                "title": "Cambia de filas a una visualización",
+                "description": "Usa el mismo resultado en Table o Charts sin reconstruir el análisis en otra herramienta."
+              },
+              {
+                "title": "Configura dimensiones y métricas",
+                "description": "Elige el tipo de gráfico, los campos X e Y, la agregación y la agrupación que encajen con el resultado."
+              },
+              {
+                "title": "Mantén la evidencia junto a la consulta",
+                "description": "El gráfico permanece vinculado al SQL y al Result Set que lo generaron, listo para revisar e iterar."
+              }
+            ]
+          },
+          "savedQueries": {
+            "label": "Saved Queries",
+            "title": "Convierte consultas verificadas en recursos reutilizables",
+            "description": "Da a tu SQL útil un lugar permanente para encontrarlo, volver a ejecutarlo y seguir mejorándolo.",
+            "imageAlt": "Dory Saved Queries con SQL organizado, su resultado y el contexto de AI",
+            "features": [
+              {
+                "title": "Organiza el SQL útil",
+                "description": "Guarda una consulta verificada con un título, una descripción y una carpeta claros."
+              },
+              {
+                "title": "Encuéntrala y ábrela rápidamente",
+                "description": "Busca en la colección guardada y abre cualquier consulta como una pestaña completa del Workspace."
+              },
+              {
+                "title": "Continúa con el mismo contexto",
+                "description": "Edita, ejecuta, crea gráficos o pregunta a AI sobre el SQL guardado sin reconstruir el análisis."
+              }
+            ]
+          },
+          "queryHistory": {
+            "label": "Query History",
+            "title": "Cada ejecución queda registrada para cuando vuelvas",
+            "description": "Revisa qué se ejecutó, qué falló y qué resultados siguen disponibles, y continúa desde el intento que necesites.",
+            "imageAlt": "Dory Query History con consultas correctas, canceladas y fallidas, además de resultados persistidos",
+            "features": [
+              {
+                "title": "Registra cada ejecución",
+                "description": "Conserva el SQL, estado, fecha y duración de cada ejecución sin guardarla manualmente."
+              },
+              {
+                "title": "Mantén visibles los fallos",
+                "description": "Los intentos cancelados o fallidos conservan los detalles del error para facilitar la investigación."
+              },
+              {
+                "title": "Reabre resultados persistidos",
+                "description": "Vuelve a cualquier Result Set disponible y continúa filtrando, creando gráficos o editando el SQL."
+              }
+            ]
+          }
+        },
         "handoff": {
           "title": "No vuelvas a empezar desde una conversación del agente.",
           "description": "Los Agent Runs terminados se abren como pestañas SQL, resultados, hallazgos y actividad. Edita el SQL, amplía el análisis y devuelve el espacio actualizado a un agente.",

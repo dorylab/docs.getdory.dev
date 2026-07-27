@@ -6,6 +6,7 @@ import {
 import type { Metadata } from "next";
 import Image from "next/image";
 import type { StaticImageData } from "next/image";
+import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 
 import { MarketingLayout } from "@/components/marketing-layout";
@@ -18,12 +19,31 @@ import AskPreview from "@/public/ask-focus.png";
 import AutoCompletePreview from "@/public/auto-complete.png";
 import ContextPreview from "@/public/context-focus.png";
 import HeroPreview from "@/public/hero.png";
+import ChartsPreview from "@/public/images/core-features/dory-desktop-sql-console-sqlite-charts.png";
+import ExplorerPreview from "@/public/images/core-features/dory-explorer-table-overview.png";
 import WorkspacePreview from "@/public/images/core-features/dory-desktop-sql-console-sqlite-results.png";
+import QueryHistoryPreview from "@/public/images/for-humans/play-query-history.png";
+import SavedQueriesPreview from "@/public/images/for-humans/play-saved-queries.png";
 import LargeResultSetPreview from "@/public/large-resultset-2.png";
 
 type PageProps = { params: Promise<{ lang: string }> };
 type TextItem = { title: string; description: string };
 type HighlightedTextItem = TextItem & { highlights: string[] };
+type DailyFeatureCopy = {
+  label: string;
+  title: string;
+  description: string;
+  imageAlt: string;
+  features: TextItem[];
+};
+
+type DailyFeatureShowcaseProps = DailyFeatureCopy & {
+  docsHref: string;
+  docsLabel: string;
+  image: StaticImageData;
+  imageOnLeft?: boolean;
+  isCjk: boolean;
+};
 
 const workspaceTabs = ["Customer Analysis", "Revenue Report", "Top Products"] as const;
 
@@ -94,6 +114,86 @@ function FeatureList({ items }: { items: string[] }) {
   );
 }
 
+function DailyFeatureShowcase({
+  label,
+  title,
+  description,
+  imageAlt,
+  features,
+  docsHref,
+  docsLabel,
+  image,
+  imageOnLeft = false,
+  isCjk,
+}: DailyFeatureShowcaseProps) {
+  return (
+    <article className="border-t border-dory-line py-16 md:py-24">
+      <div
+        className={cn(
+          "grid gap-10 lg:items-center lg:gap-12",
+          imageOnLeft
+            ? "lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]"
+            : "lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]",
+        )}
+      >
+        <div className={cn(imageOnLeft && "lg:order-2")}>
+          <p className="text-[11px] font-medium tracking-[0.16em] text-dory-muted uppercase">
+            {label}
+          </p>
+          <h3
+            className={cn(
+              "mt-3 max-w-xl text-[clamp(2rem,3vw,2.75rem)] leading-[1.1] font-medium tracking-[-0.03em] text-balance",
+              isCjk &&
+                "text-[clamp(1.875rem,2.8vw,2.5rem)] leading-[1.16] tracking-[-0.025em]",
+            )}
+          >
+            {title}
+          </h3>
+          <p className="mt-4 max-w-xl text-base leading-7 text-pretty text-dory-muted">
+            {description}
+          </p>
+
+          <div className="mt-8 border-t border-dory-line">
+            {features.map((feature, index) => (
+              <div
+                key={feature.title}
+                className="grid grid-cols-[28px_1fr] gap-3 border-b border-dory-line py-4 last:border-b-0"
+              >
+                <span className="pt-0.5 font-mono text-[10px] text-dory-muted">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h4 className="text-sm font-medium tracking-[-0.01em]">
+                    {feature.title}
+                  </h4>
+                  <p className="mt-1.5 text-sm leading-6 text-dory-muted">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <Link
+            href={docsHref}
+            className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-dory-ink underline decoration-dory-line underline-offset-4 transition-colors hover:decoration-dory-ink focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dory-ink"
+          >
+            {docsLabel}
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </Link>
+        </div>
+
+        <PaintedProductFrame
+          src={image}
+          alt={imageAlt}
+          sizes="(max-width: 1023px) calc(100vw - 72px), 700px"
+          className={cn(imageOnLeft && "lg:order-1")}
+        />
+      </div>
+    </article>
+  );
+}
+
 export default async function ForHumansPage({ params }: PageProps) {
   const { lang } = await params;
   const t = await getTranslations({ locale: lang, namespace: "landing" });
@@ -101,6 +201,36 @@ export default async function ForHumansPage({ params }: PageProps) {
   const completionFeatures = t.raw("agentHome.humans.workspace.completionFeatures") as TextItem[];
   const capabilities = t.raw("agentHome.humans.workspace.capabilities") as HighlightedTextItem[];
   const resultFeatures = t.raw("agentHome.humans.results.features") as TextItem[];
+  const dailyFeatures = [
+    {
+      id: "explorer",
+      copy: t.raw("agentHome.humans.dailyWorkflow.explorer") as DailyFeatureCopy,
+      image: ExplorerPreview,
+      docsHref: `/${lang}/docs/core-features/explorer`,
+      imageOnLeft: false,
+    },
+    {
+      id: "charts",
+      copy: t.raw("agentHome.humans.dailyWorkflow.charts") as DailyFeatureCopy,
+      image: ChartsPreview,
+      docsHref: `/${lang}/docs/core-features/charts-results`,
+      imageOnLeft: true,
+    },
+    {
+      id: "saved-queries",
+      copy: t.raw("agentHome.humans.dailyWorkflow.savedQueries") as DailyFeatureCopy,
+      image: SavedQueriesPreview,
+      docsHref: `/${lang}/docs/core-features/saved-queries`,
+      imageOnLeft: false,
+    },
+    {
+      id: "query-history",
+      copy: t.raw("agentHome.humans.dailyWorkflow.queryHistory") as DailyFeatureCopy,
+      image: QueryHistoryPreview,
+      docsHref: `/${lang}/docs/core-features/sql-console`,
+      imageOnLeft: true,
+    },
+  ] as const;
   const handoffFeatures = t.raw("agentHome.humans.handoff.features") as string[];
   const workflowSteps = t.raw("agentHome.workflow.steps") as TextItem[];
   const trustItems = t.raw("agentHome.humans.control.items") as string[];
@@ -310,6 +440,38 @@ export default async function ForHumansPage({ params }: PageProps) {
                 className="lg:order-1"
               />
             </div>
+          </section>
+
+          <section className="border-b border-dory-line">
+            <div className="py-16 md:py-24">
+              <p className="text-[11px] font-medium tracking-[0.16em] text-dory-muted uppercase">
+                {t("agentHome.humans.dailyWorkflow.label")}
+              </p>
+              <h2
+                className={cn(
+                  "mt-3 max-w-[900px] text-[clamp(2.5rem,4.5vw,4.5rem)] leading-[1] font-medium tracking-[-0.045em] text-balance",
+                  isCjk &&
+                    "max-w-[820px] text-[clamp(2.25rem,4.1vw,4rem)] leading-[1.08] tracking-[-0.04em]",
+                )}
+              >
+                {t("agentHome.humans.dailyWorkflow.title")}
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-7 text-pretty text-dory-muted md:text-lg md:leading-8">
+                {t("agentHome.humans.dailyWorkflow.description")}
+              </p>
+            </div>
+
+            {dailyFeatures.map((feature) => (
+              <DailyFeatureShowcase
+                key={feature.id}
+                {...feature.copy}
+                docsHref={feature.docsHref}
+                docsLabel={t("agentHome.humans.dailyWorkflow.docsLabel")}
+                image={feature.image}
+                imageOnLeft={feature.imageOnLeft}
+                isCjk={isCjk}
+              />
+            ))}
           </section>
 
           <section className="border-b border-dory-line py-16 md:py-24">

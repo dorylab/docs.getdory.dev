@@ -127,6 +127,92 @@
             }
           ]
         },
+        "dailyWorkflow": {
+          "label": "日常の SQL ワークフロー",
+          "title": "SQL だけではありません。理解し、可視化し、探索の全工程を保存します。",
+          "description": "未知のスキーマの確認から再利用できる分析まで、同じ Workspace で進められます。",
+          "docsLabel": "機能ドキュメントを見る",
+          "explorer": {
+            "label": "Explorer",
+            "title": "SQL を書く前に、まずデータベースを理解する",
+            "description": "実際のデータベースオブジェクトをたどり、テーブルの詳細を確認してから、クエリするデータの形を判断できます。",
+            "imageAlt": "ClickHouse テーブルの Overview、Schema ナビゲーション、メタデータに基づく要約を表示する Dory Explorer",
+            "features": [
+              {
+                "title": "実際のデータベースオブジェクトを移動",
+                "description": "現在の接続からデータベース、Schema、テーブル、View、Materialized View を直接参照できます。"
+              },
+              {
+                "title": "テーブルをひと目で理解",
+                "description": "実際のメタデータに基づく Summary と主要フィールドを確認し、クエリ方法を判断できます。"
+              },
+              {
+                "title": "Preview、Structure、Stats を切り替え",
+                "description": "Explorer を離れずにサンプル行、カラム型、ストレージ情報、テーブル規模を確認できます。"
+              }
+            ]
+          },
+          "charts": {
+            "label": "Charts",
+            "title": "結果からチャートまで、Workspace を離れずに",
+            "description": "確認したクエリ結果をそのまま可視化し、SQL、行データ、チャートを同じ場所に保ちます。",
+            "imageAlt": "月次売上クエリと、その結果から作成したインタラクティブな折れ線チャートを表示する Dory SQL Workspace",
+            "features": [
+              {
+                "title": "行データとチャートを切り替え",
+                "description": "同じクエリ結果を Table または Charts で表示し、別のツールで分析を作り直す必要がありません。"
+              },
+              {
+                "title": "ディメンションと指標を設定",
+                "description": "結果に合うチャート形式、X・Y フィールド、集計方法、グループを選択できます。"
+              },
+              {
+                "title": "根拠をクエリと一緒に保持",
+                "description": "チャートは生成元の SQL と Result Set に結び付き、確認や修正を続けられます。"
+              }
+            ]
+          },
+          "savedQueries": {
+            "label": "Saved Queries",
+            "title": "検証済みクエリを再利用できる資産に",
+            "description": "有用な SQL を整理して保存し、後からすぐに見つけて再実行し、改善を続けられます。",
+            "imageAlt": "整理された SQL、クエリ結果、AI Context を表示する Dory Saved Queries",
+            "features": [
+              {
+                "title": "有用な SQL を整理",
+                "description": "検証済みのクエリにわかりやすいタイトル、説明、フォルダーを設定して保存します。"
+              },
+              {
+                "title": "すばやく検索して開き直す",
+                "description": "保存済みコレクションを検索し、任意のクエリを完全な Workspace Tab として開けます。"
+              },
+              {
+                "title": "同じコンテキストから続ける",
+                "description": "分析を組み直さず、保存した SQL を編集、再実行、チャート化、AI への質問に利用できます。"
+              }
+            ]
+          },
+          "queryHistory": {
+            "label": "Query History",
+            "title": "すべての実行を記録し、いつでも続きから",
+            "description": "成功、失敗、キャンセルされたクエリと利用可能な結果を確認し、必要な実行から作業を再開できます。",
+            "imageAlt": "成功、キャンセル、失敗したクエリと永続化された結果を表示する Dory Query History",
+            "features": [
+              {
+                "title": "すべての実行を自動記録",
+                "description": "手動で保存しなくても、各実行の SQL、ステータス、時刻、所要時間が残ります。"
+              },
+              {
+                "title": "失敗時の情報を保持",
+                "description": "キャンセルや失敗したクエリにもエラー詳細が残り、原因の調査を続けられます。"
+              },
+              {
+                "title": "永続化された結果を開き直す",
+                "description": "利用可能な Result Set に戻り、フィルター、チャート、SQL の編集を続けられます。"
+              }
+            ]
+          }
+        },
         "handoff": {
           "title": "Agent の会話ログからやり直す必要はありません。",
           "description": "完了した Agent Run は、SQL タブ、結果セット、知見、アクティビティとして開きます。SQL を編集し、分析を追加して、更新したワークスペースを Agent に戻せます。",
