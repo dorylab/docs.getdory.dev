@@ -19,7 +19,7 @@ import AutoCompletePreview from "@/public/auto-complete.png";
 import ContextPreview from "@/public/context-focus.png";
 import HeroPreview from "@/public/hero.png";
 import WorkspacePreview from "@/public/images/core-features/dory-desktop-sql-console-sqlite-results.png";
-import LargeResultSetPreview from "@/public/large-resultset.png";
+import LargeResultSetPreview from "@/public/large-resultset-2.png";
 
 type PageProps = { params: Promise<{ lang: string }> };
 type TextItem = { title: string; description: string };
@@ -235,6 +235,7 @@ export default async function ForHumansPage({ params }: PageProps) {
                 alt={t("agentHome.humans.results.imageAlt")}
                 sizes="(max-width: 1023px) calc(100vw - 72px), 700px"
                 className="lg:order-1"
+                magnifier={{ zoom: 1.8 }}
               />
             </div>
           </section>
