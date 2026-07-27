@@ -316,42 +316,26 @@
             }
           ],
           "completionImageAlt": "Dory SQL editor on the ClickHouse Play data source suggesting matching Hacker News tables after FROM hack",
-          "capabilitiesTitle": "Everything daily database work needs, in one workspace.",
-          "capabilitiesDescription": "From browsing data and writing SQL to saved queries, history, charts, and exports, Dory carries the complete query workflow.",
+          "capabilitiesTitle": "One workspace for the entire data exploration process",
+          "capabilitiesDescription": "From SQL queries to result analysis, all your work stays in the same Workspace.",
           "capabilities": [
             {
-              "title": "Data browsing",
-              "description": "Browse databases, schemas, tables, columns, and indexes. Preview table data and inspect complete cells or rows."
+              "title": "Multi-tab queries for complex exploration",
+              "description": "Keep multiple SQL queries and Result Sets open at once, without switching between windows.",
+              "highlights": ["Multi Tab", "Multi Result", "Independent context per Tab"]
             },
             {
-              "title": "SQL editor",
-              "description": "Use schema-aware autocomplete and formatting, then run a selection or multiple statements with multiple result sets."
+              "title": "Persist query results and continue anytime",
+              "description": "Close the window or reopen Query History—the previous results are still available for analysis.",
+              "highlights": ["Artifact", "Parquet"]
             },
             {
-              "title": "Saved Queries",
-              "description": "Save a name, description, and SQL. Organize queries in folders and reopen them when the work returns."
-            },
-            {
-              "title": "Query History",
-              "description": "Review past SQL, time, duration, and status. Restore the result set when a saved result is available."
-            },
-            {
-              "title": "Complete exports",
-              "description": "Export the complete or filtered ResultSet as CSV or Parquet for the next step in your workflow."
-            },
-            {
-              "title": "Multi-tab workflow",
-              "description": "Keep multiple query and result tabs open, so parallel analysis stays organized in one workspace."
-            },
-            {
-              "title": "Result charts",
-              "description": "Create charts from a real ResultSet and keep the visualization attached to the query that produced it."
-            },
-            {
-              "title": "AI collaboration",
-              "description": "Give AI the current SQL, schema, and result context to explain, fix, optimize, or create the next useful tab."
+              "title": "Keep working from the result",
+              "description": "Filter, sort, chart, or export a query result without rewriting the SQL.",
+              "highlights": ["Data Browser", "Charts", "CSV Export"]
             }
           ],
+          "workspaceImageAlt": "A Dory workspace with SQL queries, multiple tabs, and query results ready for further analysis",
           "connectionLabel": "Ready for the connections you already use",
           "connectionItems": [
             "PostgreSQL, MySQL, ClickHouse, SQLite, DuckDB, and more",

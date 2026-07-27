@@ -45,6 +45,7 @@ export function PaintedProductFrame({
         alt={alt}
         {...(typeof src === "string" ? { width, height } : {})}
         priority={priority}
+        unoptimized
         sizes={sizes}
         className={cn(
           "h-auto w-full rounded-[14px] shadow-[0_14px_30px_rgba(47,108,255,0.16)] dark:shadow-[0_14px_30px_rgba(0,0,0,0.48)]",

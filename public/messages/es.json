@@ -76,42 +76,26 @@
             }
           ],
           "completionImageAlt": "Editor SQL de Dory con la fuente ClickHouse Play sugiriendo tablas de Hacker News después de FROM hack",
-          "capabilitiesTitle": "Todo lo necesario para el trabajo diario con bases de datos, en un espacio.",
-          "capabilitiesDescription": "Desde explorar datos y escribir SQL hasta guardar consultas, revisar el historial, crear gráficos y exportar resultados, Dory cubre el flujo completo de consulta.",
+          "capabilitiesTitle": "Un solo Workspace para todo el proceso de exploración",
+          "capabilitiesDescription": "Desde la consulta SQL hasta el análisis de resultados, todo el trabajo permanece en el mismo Workspace.",
           "capabilities": [
             {
-              "title": "Exploración de datos",
-              "description": "Explora bases, esquemas, tablas, columnas e índices. Previsualiza datos e inspecciona el contenido completo de celdas y filas."
+              "title": "Consultas en varias pestañas para conservar flujos complejos",
+              "description": "Mantén abiertos varios SQL y varios Result Sets sin cambiar de ventana.",
+              "highlights": ["Multi Tab", "Multi Result", "Contexto independiente por Tab"]
             },
             {
-              "title": "Editor SQL",
-              "description": "Usa autocompletado basado en el esquema y formato SQL; ejecuta una selección o varias sentencias con múltiples ResultSets."
+              "title": "Resultados persistentes para continuar en cualquier momento",
+              "description": "Cierra la ventana o vuelve a abrir Query History: los resultados anteriores siguen disponibles para el análisis.",
+              "highlights": ["Artifact", "Parquet"]
             },
             {
-              "title": "Saved Queries",
-              "description": "Guarda nombre, descripción y SQL. Organiza consultas en carpetas y vuelve a abrirlas cuando regreses al trabajo."
-            },
-            {
-              "title": "Query History",
-              "description": "Revisa SQL anterior, hora, duración y estado. Restaura el ResultSet cuando haya un resultado guardado."
-            },
-            {
-              "title": "Exportaciones completas",
-              "description": "Exporta el ResultSet completo o filtrado como CSV o Parquet para continuar el flujo de trabajo."
-            },
-            {
-              "title": "Flujo con varias pestañas",
-              "description": "Mantén abiertas varias pestañas de consultas y resultados para organizar análisis paralelos en un espacio."
-            },
-            {
-              "title": "Gráficos de resultados",
-              "description": "Crea gráficos desde un ResultSet real y conserva la relación con la consulta que lo produjo."
-            },
-            {
-              "title": "Colaboración con IA",
-              "description": "Da a la IA el SQL, esquema y resultado actuales para explicar, corregir, optimizar o crear la siguiente pestaña."
+              "title": "Continúa trabajando desde el resultado",
+              "description": "Filtra, ordena, crea gráficos o exporta el resultado sin volver a escribir el SQL.",
+              "highlights": ["Data Browser", "Charts", "CSV Export"]
             }
           ],
+          "workspaceImageAlt": "Un Workspace de Dory con consultas SQL, varias pestañas y resultados listos para seguir analizándolos",
           "connectionLabel": "Preparado para las conexiones que ya usas",
           "connectionItems": [
             "PostgreSQL, MySQL, ClickHouse, SQLite, DuckDB y más",

@@ -76,42 +76,26 @@
             }
           ],
           "completionImageAlt": "ClickHouse Play データソースで FROM hack と入力した後、Hacker News テーブル候補を表示する Dory SQL エディター",
-          "capabilitiesTitle": "日常のデータベース作業に必要な機能を、ひとつのワークスペースに。",
-          "capabilitiesDescription": "データ参照、SQL 作成、クエリ保存、履歴、チャート、エクスポートまで、Dory が日常のクエリ作業を支えます。",
+          "capabilitiesTitle": "ひとつのワークスペースで、データ探索の全工程を",
+          "capabilitiesDescription": "SQL クエリから結果分析まで、すべての作業を同じ Workspace に保存します。",
           "capabilities": [
             {
-              "title": "データ参照",
-              "description": "データベース、スキーマ、テーブル、カラム、インデックスを参照。テーブルデータをプレビューし、セルや行の全内容を確認できます。"
+              "title": "複数 Tab で、複雑な探索フローを維持",
+              "description": "複数の SQL と複数の Result Set を同時に開き、ウィンドウを切り替えずに作業できます。",
+              "highlights": ["複数 Tab", "複数 Result", "Tab ごとに独立したコンテキスト"]
             },
             {
-              "title": "SQL エディター",
-              "description": "スキーマ対応の補完とフォーマットを使い、選択範囲や複数ステートメントを実行して複数の ResultSet を確認できます。"
+              "title": "クエリ結果を永続化し、いつでも探索を再開",
+              "description": "ウィンドウを閉じたり Query History を開き直したりしても、以前のデータ結果をそのまま分析できます。",
+              "highlights": ["Artifact", "Parquet"]
             },
             {
-              "title": "Saved Queries",
-              "description": "名前、説明、SQL を保存し、フォルダーで整理。必要なときにすぐ開き直せます。"
-            },
-            {
-              "title": "Query History",
-              "description": "過去の SQL、実行時刻、所要時間、ステータスを確認。保存結果があれば当時の ResultSet を復元できます。"
-            },
-            {
-              "title": "完全な結果のエクスポート",
-              "description": "完全またはフィルター済みの ResultSet を CSV / Parquet で書き出し、次の作業に利用できます。"
-            },
-            {
-              "title": "マルチタブワークフロー",
-              "description": "複数のクエリタブと結果タブを同時に開き、並行する分析をひとつのワークスペースで整理できます。"
-            },
-            {
-              "title": "結果チャート",
-              "description": "実際の ResultSet からチャートを作成し、元になったクエリとの関係を保てます。"
-            },
-            {
-              "title": "AI コラボレーション",
-              "description": "現在の SQL、スキーマ、結果を AI に渡し、説明、修正、最適化、次のタブ作成を任せられます。"
+              "title": "結果から、そのまま次の作業へ",
+              "description": "クエリ結果をフィルター、並べ替え、チャート分析、エクスポートし、SQL を書き直さずに作業を続けられます。",
+              "highlights": ["Data Browser", "Charts", "CSV Export"]
             }
           ],
+          "workspaceImageAlt": "SQL クエリ、複数の Tab、さらに分析できるクエリ結果を表示した Dory Workspace",
           "connectionLabel": "いつもの接続環境に対応",
           "connectionItems": [
             "PostgreSQL、MySQL、ClickHouse、SQLite、DuckDB など",

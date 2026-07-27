@@ -1,14 +1,6 @@
 import {
   ArrowRight,
-  Bookmark,
-  Bot,
-  ChartNoAxesCombined,
   Check,
-  Clock3,
-  Code2,
-  Database,
-  Download,
-  PanelsTopLeft,
   ShieldCheck,
 } from "lucide-react";
 import type { Metadata } from "next";
@@ -26,21 +18,14 @@ import AskPreview from "@/public/ask-focus.png";
 import AutoCompletePreview from "@/public/auto-complete.png";
 import ContextPreview from "@/public/context-focus.png";
 import HeroPreview from "@/public/hero.png";
-import ResultPreview from "@/public/result-table.png";
+import WorkspacePreview from "@/public/images/core-features/dory-desktop-sql-console-sqlite-results.png";
+import LargeResultSetPreview from "@/public/large-resultset.png";
 
 type PageProps = { params: Promise<{ lang: string }> };
 type TextItem = { title: string; description: string };
+type HighlightedTextItem = TextItem & { highlights: string[] };
 
-const capabilityIcons = [
-  Database,
-  Code2,
-  Bookmark,
-  Clock3,
-  Download,
-  PanelsTopLeft,
-  ChartNoAxesCombined,
-  Bot,
-] as const;
+const workspaceTabs = ["Customer Analysis", "Revenue Report", "Top Products"] as const;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;
@@ -85,6 +70,7 @@ function ProductFrame({
         width={width}
         height={height}
         priority={priority}
+        unoptimized
         sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1280px"
         className="h-auto w-full rounded-[15px]"
       />
@@ -113,7 +99,7 @@ export default async function ForHumansPage({ params }: PageProps) {
   const t = await getTranslations({ locale: lang, namespace: "landing" });
   const isCjk = lang === "zh" || lang === "ja";
   const completionFeatures = t.raw("agentHome.humans.workspace.completionFeatures") as TextItem[];
-  const capabilities = t.raw("agentHome.humans.workspace.capabilities") as TextItem[];
+  const capabilities = t.raw("agentHome.humans.workspace.capabilities") as HighlightedTextItem[];
   const resultFeatures = t.raw("agentHome.humans.results.features") as TextItem[];
   const handoffFeatures = t.raw("agentHome.humans.handoff.features") as string[];
   const workflowSteps = t.raw("agentHome.workflow.steps") as TextItem[];
@@ -245,7 +231,7 @@ export default async function ForHumansPage({ params }: PageProps) {
               </div>
 
               <PaintedProductFrame
-                src={ResultPreview}
+                src={LargeResultSetPreview}
                 alt={t("agentHome.humans.results.imageAlt")}
                 sizes="(max-width: 1023px) calc(100vw - 72px), 700px"
                 className="lg:order-1"
@@ -269,51 +255,59 @@ export default async function ForHumansPage({ params }: PageProps) {
               </p>
             </div>
 
-            <div className="mt-8 grid border-t border-l border-dory-line md:grid-cols-2 lg:grid-cols-4">
-              {capabilities.map((item, index) => {
-                const Icon = capabilityIcons[index] ?? Bot;
-                const isAi = index === capabilities.length - 1;
-
-                return (
-                  <article
-                    key={item.title}
-                    className={cn(
-                      "min-h-[200px] border-r border-b border-dory-line p-5",
-                      isAi && "border-[#171615] bg-[#171615] text-[#f7f1e8] dark:border-white/15",
-                    )}
-                  >
-                    <div className="flex items-center justify-between gap-4">
-                      <Icon className={cn("size-5", isAi ? "text-[#d9c48b]" : "text-dory-muted")} />
-                      <span className={cn("font-mono text-[10px]", isAi ? "text-white/45" : "text-dory-muted")}>
+            <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-center lg:gap-12">
+              <div className="lg:order-2">
+                <div className="border-t border-dory-line">
+                  {capabilities.map((item, index) => (
+                    <article
+                      key={item.title}
+                      className="grid grid-cols-[28px_1fr] gap-3 border-b border-dory-line py-5 last:border-b-0"
+                    >
+                      <span className="pt-0.5 font-mono text-[10px] text-dory-muted">
                         {String(index + 1).padStart(2, "0")}
                       </span>
-                    </div>
-                    <h3 className="mt-8 text-lg font-medium tracking-[-0.02em]">{item.title}</h3>
-                    <p className={cn("mt-3 text-sm leading-6", isAi ? "text-white/60" : "text-dory-muted")}>
-                      {item.description}
-                    </p>
-                  </article>
-                );
-              })}
-            </div>
+                      <div className="min-w-0">
+                        <h3 className="text-base leading-6 font-medium tracking-[-0.015em]">{item.title}</h3>
+                        <p className="mt-2 text-sm leading-6 text-dory-muted">{item.description}</p>
+                        <div className="mt-3 flex flex-wrap gap-1.5">
+                          {item.highlights.map((highlight) => (
+                            <span
+                              key={highlight}
+                              className="rounded-full border border-dory-line bg-white/35 px-2.5 py-1 text-[11px] leading-4 text-dory-muted dark:bg-white/[0.035]"
+                            >
+                              {highlight}
+                            </span>
+                          ))}
+                        </div>
+                        {index === 0 ? (
+                          <div className="mt-3 flex flex-wrap gap-1.5" aria-label="Workspace tabs">
+                            {workspaceTabs.map((tab, tabIndex) => (
+                              <span
+                                key={tab}
+                                className={cn(
+                                  "rounded-md border px-2.5 py-1.5 font-mono text-[10px] leading-4",
+                                  tabIndex === 0
+                                    ? "border-[#2f6cff]/35 bg-[#2f6cff]/8 text-[#285bc8] dark:border-[#88b6ff]/35 dark:bg-[#88b6ff]/10 dark:text-[#a9c9ff]"
+                                    : "border-dory-line bg-white/25 text-dory-muted dark:bg-white/[0.025]",
+                                )}
+                              >
+                                {tab}
+                              </span>
+                            ))}
+                          </div>
+                        ) : null}
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
 
-            <div className="mt-10 grid gap-5 md:grid-cols-2">
-              <figure>
-                <ProductFrame
-                  src="/images/for-humans/play-saved-queries.png"
-                  alt={t("agentHome.humans.workspace.savedQueriesAlt")}
-                  className="rounded-[16px] p-1.5 shadow-none"
-                />
-                <figcaption className="mt-3 text-xs tracking-[0.1em] text-dory-muted uppercase">Saved Queries</figcaption>
-              </figure>
-              <figure>
-                <ProductFrame
-                  src="/images/for-humans/play-query-history.png"
-                  alt={t("agentHome.humans.workspace.historyAlt")}
-                  className="rounded-[16px] p-1.5 shadow-none"
-                />
-                <figcaption className="mt-3 text-xs tracking-[0.1em] text-dory-muted uppercase">Query History</figcaption>
-              </figure>
+              <PaintedProductFrame
+                src={WorkspacePreview}
+                alt={t("agentHome.humans.workspace.workspaceImageAlt")}
+                sizes="(max-width: 1023px) calc(100vw - 72px), 700px"
+                className="lg:order-1"
+              />
             </div>
           </section>
 
@@ -448,6 +442,7 @@ export default async function ForHumansPage({ params }: PageProps) {
                       <Image
                         src={card.image}
                         alt={card.imageAlt}
+                        unoptimized
                         sizes="(max-width: 1023px) 100vw, 400px"
                         placeholder="blur"
                         className="h-full w-full bg-[#11100f] object-cover object-top"

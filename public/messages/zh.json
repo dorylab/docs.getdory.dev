@@ -76,42 +76,26 @@
             }
           ],
           "completionImageAlt": "Dory 在 ClickHouse Play 数据源中输入 FROM hack 后智能提示匹配的 Hacker News 表",
-          "capabilitiesTitle": "日常数据库工作需要的能力，一个工作区就够了。",
-          "capabilitiesDescription": "从浏览数据、编写 SQL，到保存查询、查看历史、创建图表和导出结果，Dory 可以承担完整的日常查询工作。",
+          "capabilitiesTitle": "一个工作区，承载整个数据探索过程",
+          "capabilitiesDescription": "从 SQL 查询到结果分析，所有工作都保存在同一个 Workspace 中。",
           "capabilities": [
             {
-              "title": "数据浏览",
-              "description": "浏览数据库、Schema、表、字段和索引；预览表数据，并检查单元格和整行的完整内容。"
+              "title": "多 Tab 查询，保持复杂探索流程",
+              "description": "同时打开多个 SQL、多个 Result Set，不需要在窗口之间切换。",
+              "highlights": ["多 Tab", "多 Result", "每个 Tab 独立上下文"]
             },
             {
-              "title": "SQL 编辑器",
-              "description": "使用 Schema-aware 自动补全和格式化，执行选中 SQL 或多条语句，并查看多个 ResultSet。"
+              "title": "查询结果持久保存，随时继续探索",
+              "description": "关闭窗口、重新打开历史记录，之前的数据结果依然可继续分析。",
+              "highlights": ["Artifact", "Parquet"]
             },
             {
-              "title": "Saved Queries",
-              "description": "保存名称、说明和 SQL，通过文件夹组织常用查询，并在需要时快速重新打开。"
-            },
-            {
-              "title": "Query History",
-              "description": "查看过去执行的 SQL、时间、耗时和状态；结果仍可用时恢复当时的 ResultSet。"
-            },
-            {
-              "title": "完整结果导出",
-              "description": "将完整或筛选后的 ResultSet 导出为 CSV 或 Parquet，继续用于后续处理。"
-            },
-            {
-              "title": "多 Tab 工作流",
-              "description": "同时打开多个查询和结果 Tab，在一个工作区中组织并行分析任务。"
-            },
-            {
-              "title": "结果图表",
-              "description": "从真实 ResultSet 创建图表，并保留图表与生成它的查询之间的关系。"
-            },
-            {
-              "title": "AI 协作",
-              "description": "让 AI 读取当前 SQL、Schema 和结果，解释、修复、优化或创建下一个有用的 Tab。"
+              "title": "从结果继续工作",
+              "description": "对查询结果进行筛选、排序、图表分析或导出，无需重新编写 SQL。",
+              "highlights": ["Data Browser", "Charts", "CSV Export"]
             }
           ],
+          "workspaceImageAlt": "Dory 工作区同时展示 SQL 查询、多个 Tab 和可继续分析的查询结果",
           "connectionLabel": "连接日常使用的数据环境",
           "connectionItems": [
             "PostgreSQL、MySQL、ClickHouse、SQLite、DuckDB 等数据库",
