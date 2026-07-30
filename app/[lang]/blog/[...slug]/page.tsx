@@ -9,9 +9,11 @@ import FooterSection from "@/components/sections/footer";
 import { MarketingLayout } from "@/components/marketing-layout";
 import { getMDXComponents } from "@/mdx-components";
 import {
+  getBlogCategoryTitle,
   getBlogPostBySlug,
   getBlogSlugs,
   getReleaseNoteBySlug,
+  resolveBlogCategory,
 } from "@/lib/blog";
 import { defaultLanguage, locales, type Language } from "@/lib/i18n";
 import { source } from "@/lib/source";
@@ -155,6 +157,9 @@ export default async function BlogPostPage({
   }
 
   const isReleaseNote = Boolean(releaseNoteSlug);
+  const blogCategory = resolveBlogCategory(
+    (post as { category?: unknown } | null)?.category,
+  );
   const releaseNoteBody =
     post && typeof post.body === "string" ? post.body : null;
   const MDX =
@@ -168,7 +173,13 @@ export default async function BlogPostPage({
       <main className="min-h-screen bg-dory-page px-4 pt-10 pb-20 text-dory-ink sm:px-6 md:px-10">
         <article className="mx-auto w-full max-w-3xl">
           <Link
-            href={isReleaseNote ? "/docs/release-notes" : "/blog"}
+            href={
+              isReleaseNote
+                ? "/docs/release-notes"
+                : blogCategory === "partner"
+                  ? "/blog?category=partner"
+                  : "/blog"
+            }
             locale={linkLocale}
             className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-slate-500 transition hover:text-slate-950 dark:text-slate-400 dark:hover:text-white"
           >
@@ -176,7 +187,9 @@ export default async function BlogPostPage({
             {isReleaseNote ? t("backToReleaseNotes") : t("backToBlog")}
           </Link>
           <div className="mb-4 text-sm font-medium tracking-[0.18em] text-slate-500 uppercase dark:text-slate-400">
-            {isReleaseNote ? "Release Notes" : "Blog"}
+            {isReleaseNote
+              ? "Release Notes"
+              : getBlogCategoryTitle(blogCategory)}
           </div>
           <div className="prose prose-slate max-w-none dark:prose-invert">
             {releaseNoteBody ? (

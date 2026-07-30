@@ -4,7 +4,12 @@ import { notFound } from "next/navigation";
 import FooterSection from "@/components/sections/footer";
 import { MarketingLayout } from "@/components/marketing-layout";
 import { getMDXComponents } from "@/mdx-components";
-import { getBlogPostBySlug, getBlogSlugs } from "@/lib/blog";
+import {
+  getBlogCategoryTitle,
+  getBlogPostBySlug,
+  getBlogSlugs,
+  resolveBlogCategory,
+} from "@/lib/blog";
 import { defaultLanguage, locales, type Language } from "@/lib/i18n";
 
 function resolveLanguage(lang: string): Language {
@@ -88,13 +93,16 @@ export default async function BlogPostPage({
   }
 
   const MDX = post.body;
+  const category = resolveBlogCategory(
+    (post as { category?: unknown }).category,
+  );
 
   return (
     <MarketingLayout lang={locale}>
       <main className="min-h-screen bg-dory-page px-4 pt-10 pb-20 text-dory-ink sm:px-6 md:px-10">
         <article className="mx-auto w-full max-w-3xl">
           <div className="mb-4 text-sm font-medium tracking-[0.18em] text-slate-500 uppercase dark:text-slate-400">
-            Blog
+            {getBlogCategoryTitle(category)}
           </div>
           <div className="prose prose-slate max-w-none dark:prose-invert">
             <MDX components={getMDXComponents()} />

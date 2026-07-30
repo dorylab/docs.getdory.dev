@@ -33,16 +33,27 @@ export async function generateMetadata({
 
 export default async function BlogIndexPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ lang: string }>;
+  searchParams?: Promise<{ category?: string }>;
 }) {
   const { lang } = await params;
   const locale = resolveLanguage(lang);
-  const [t, posts] = await Promise.all([
+  const requestedCategory = (await searchParams)?.category?.toLowerCase();
+  const selectedCategory =
+    requestedCategory === "partner" ? "partner" : null;
+  const [t, allPosts] = await Promise.all([
     getTranslations({ locale, namespace: "blog" }),
     getReleaseNotes(locale),
   ]);
+  const posts = selectedCategory
+    ? allPosts.filter((post) => post.category === selectedCategory)
+    : allPosts;
   const categories = getBlogCategories();
+  const selectedCategoryDetails = categories.find(
+    (category) => category.slug === selectedCategory,
+  );
   const latestPost = posts[0] ?? null;
   const featuredPosts = posts.slice(0, 4);
   const recentPosts = posts.slice(0, 12);
@@ -52,7 +63,13 @@ export default async function BlogIndexPage({
     <MarketingLayout lang={lang}>
       <main className="min-h-screen bg-dory-page px-4 pt-10 pb-20 text-dory-ink sm:px-6 md:px-10">
         <div className="mx-auto flex w-full max-w-[1300px] flex-col gap-12">
-          <section className="grid min-h-[28rem] gap-px overflow-hidden border border-slate-950/10 bg-slate-950/10 md:grid-cols-[1.22fr_0.78fr] dark:border-white/10 dark:bg-white/10">
+          <section
+            className={`grid min-h-[28rem] gap-px overflow-hidden border border-slate-950/10 bg-slate-950/10 dark:border-white/10 dark:bg-white/10 ${
+              featuredPosts.length > 1
+                ? "md:grid-cols-[1.22fr_0.78fr]"
+                : ""
+            }`}
+          >
             {latestPost ? (
               <Link
                 href={latestPost.href}
@@ -63,8 +80,9 @@ export default async function BlogIndexPage({
                 <div className="absolute inset-x-0 bottom-0 h-2/3 bg-[image:var(--dory-release-fade)]" />
                 <div className="relative max-w-2xl">
                   <div className="mb-4 inline-flex border border-white/18 bg-white/10 px-3 py-1 text-xs font-medium tracking-[0.18em] text-[#f7f7f4] uppercase">
-                    {t("latestRelease")} ·{" "}
-                    {formatReleaseLabel(latestPost.version)}
+                    {selectedCategory === "partner"
+                      ? "Partner"
+                      : `${t("latestRelease")} · ${formatReleaseLabel(latestPost.version)}`}
                   </div>
                   <h1 className="text-4xl leading-[0.98] font-semibold tracking-[-0.055em] text-balance md:text-6xl">
                     {latestPost.title}
@@ -80,29 +98,35 @@ export default async function BlogIndexPage({
               </Link>
             ) : null}
 
-            <div className="grid gap-px bg-slate-950/10 dark:bg-white/10">
-              {featuredPosts.slice(1, 4).map((post, index) => (
-                <Link
-                  key={post.slug}
-                  href={post.href}
-                  locale={linkLocale}
-                  className="group flex min-h-[9rem] flex-col justify-between bg-dory-page-wash p-5 text-dory-ink transition hover:bg-dory-surface md:p-6 dark:bg-[#111827] dark:text-[#eaf2ff] dark:hover:bg-white/[0.06]"
-                >
-                  <div>
-                    <div className="mb-3 text-xs font-medium tracking-[0.16em] text-slate-500 uppercase dark:text-slate-400">
-                      {formatReleaseLabel(post.version)}
+            {featuredPosts.length > 1 ? (
+              <div className="grid gap-px bg-slate-950/10 dark:bg-white/10">
+                {featuredPosts.slice(1, 4).map((post, index) => (
+                  <Link
+                    key={post.slug}
+                    href={post.href}
+                    locale={linkLocale}
+                    className="group flex min-h-[9rem] flex-col justify-between bg-dory-page-wash p-5 text-dory-ink transition hover:bg-dory-surface md:p-6 dark:bg-[#111827] dark:text-[#eaf2ff] dark:hover:bg-white/[0.06]"
+                  >
+                    <div>
+                      <div className="mb-3 text-xs font-medium tracking-[0.16em] text-slate-500 uppercase dark:text-slate-400">
+                        {formatReleaseLabel(post.version)}
+                      </div>
+                      <h2 className="text-xl leading-tight font-semibold tracking-[-0.03em] text-balance text-slate-950 md:text-2xl dark:text-[#eaf2ff]">
+                        {post.title}
+                      </h2>
                     </div>
-                    <h2 className="text-xl leading-tight font-semibold tracking-[-0.03em] text-balance text-slate-950 md:text-2xl dark:text-[#eaf2ff]">
-                      {post.title}
-                    </h2>
-                  </div>
-                  <div className="mt-4 flex items-center justify-between text-sm text-slate-500 dark:text-slate-400">
-                    <span>{index === 0 ? t("readLatest") : t("readPost")}</span>
-                    <ChevronRight className="size-4 transition group-hover:translate-x-1" />
-                  </div>
-                </Link>
-              ))}
-            </div>
+                    <div className="mt-4 flex items-center justify-between text-sm text-slate-500 dark:text-slate-400">
+                      <span>
+                        {index === 0 && !selectedCategory
+                          ? t("readLatest")
+                          : t("readPost")}
+                      </span>
+                      <ChevronRight className="size-4 transition group-hover:translate-x-1" />
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            ) : null}
           </section>
 
           <section className="grid gap-8 md:grid-cols-[minmax(0,1fr)_18rem] md:items-end">
@@ -111,11 +135,11 @@ export default async function BlogIndexPage({
                 {t("eyebrow")}
               </p>
               <h1 className="mt-4 text-5xl leading-none font-semibold tracking-[-0.06em] md:text-7xl">
-                {t("title")}
+                {selectedCategoryDetails?.title ?? t("title")}
               </h1>
             </div>
             <p className="max-w-md text-base leading-7 text-slate-600 dark:text-slate-300">
-              {t("description")}
+              {selectedCategoryDetails?.description ?? t("description")}
             </p>
           </section>
 
@@ -127,10 +151,18 @@ export default async function BlogIndexPage({
               <Link
                 key={category.slug}
                 href={
-                  category.slug === "blog" ? "/blog" : "/docs/release-notes"
+                  category.slug === "blog"
+                    ? "/blog"
+                    : category.slug === "partner"
+                      ? "/blog?category=partner"
+                      : "/docs/release-notes"
                 }
                 locale={linkLocale}
-                className="border border-slate-950/12 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950 dark:border-white/12 dark:text-slate-300 dark:hover:border-white dark:hover:text-white"
+                className={
+                  category.slug === selectedCategory
+                    ? "bg-brand border border-brand px-4 py-2 text-sm font-medium text-brand-foreground"
+                    : "border border-slate-950/12 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950 dark:border-white/12 dark:text-slate-300 dark:hover:border-white dark:hover:text-white"
+                }
               >
                 {category.title}
               </Link>

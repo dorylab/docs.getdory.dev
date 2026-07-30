@@ -53,6 +53,12 @@ const footerColumns: FooterColumn[] = [
     ],
   },
   {
+    title: "Partner",
+    links: [
+      { label: "Oumomo", href: "https://www.oumomo.ai/", external: true },
+    ],
+  },
+  {
     title: "Legal",
     links: [
       { label: "Policies", href: "/policies" },
@@ -85,7 +91,7 @@ export default async function FooterSection({ className, locale: localeProp }: F
       )}
     >
       <div className="relative mx-auto w-full max-w-[1300px]">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-10 pb-10 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 pb-10 sm:grid-cols-3 lg:grid-cols-6">
           {footerColumns.map((column) => (
             <div key={column.title}>
               <h3 className="text-sm font-semibold text-dory-ink">{column.title}</h3>

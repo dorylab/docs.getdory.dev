@@ -9,6 +9,7 @@ const GITHUB_REPO = "dory";
 const RELEASE_NOTES_DIR = "release-notes";
 const RELEASE_NOTES_CATEGORY = "release-notes" as const;
 const BLOG_CATEGORY = "blog" as const;
+const PARTNER_CATEGORY = "partner" as const;
 const GITHUB_RELEASE_NOTES_REVALIDATE_SECONDS = 60;
 const GITHUB_RELEASE_NOTES_FETCH_TIMEOUT_MS = 5_000;
 
@@ -40,7 +41,10 @@ function fetchGitHubContent(input: string, init: RequestInit = {}) {
   });
 }
 
-export type BlogCategory = typeof BLOG_CATEGORY | typeof RELEASE_NOTES_CATEGORY;
+export type BlogCategory =
+  | typeof BLOG_CATEGORY
+  | typeof PARTNER_CATEGORY
+  | typeof RELEASE_NOTES_CATEGORY;
 
 export type BlogPost = {
   slug: string;
@@ -205,6 +209,9 @@ async function buildLocalBlogPost(
   entry: (typeof blogCollection)[number],
   locale: Language,
 ): Promise<BlogPost> {
+  const category = resolveBlogCategory(
+    (entry as { category?: unknown }).category,
+  );
   const descriptionSource =
     typeof entry.description === "string" && entry.description.trim().length > 0
       ? entry.description
@@ -212,10 +219,10 @@ async function buildLocalBlogPost(
 
   return {
     slug,
-    category: BLOG_CATEGORY,
+    category,
     title: entry.title,
     description: descriptionSource.slice(0, 180),
-    version: "Blog",
+    version: getBlogCategoryTitle(category),
     href: `/blog/${slug}`,
     url: localizePath(`/blog/${slug}`, locale),
     body: await entry.getText("processed"),
@@ -402,6 +409,13 @@ export function getBlogCategories() {
       countLabel: (count: number) => `${count} post${count === 1 ? "" : "s"}`,
     },
     {
+      slug: PARTNER_CATEGORY,
+      title: "Partner",
+      description:
+        "Guides and resources contributed by Dory partners.",
+      countLabel: (count: number) => `${count} post${count === 1 ? "" : "s"}`,
+    },
+    {
       slug: RELEASE_NOTES_CATEGORY,
       title: "Release Notes",
       description:
@@ -417,6 +431,13 @@ export function formatReleaseLabel(version: string) {
   }
 
   return version;
+}
+
+export function resolveBlogCategory(value: unknown): BlogCategory {
+  return typeof value === "string" &&
+    value.trim().toLowerCase() === PARTNER_CATEGORY
+    ? PARTNER_CATEGORY
+    : BLOG_CATEGORY;
 }
 
 export function getBlogCategoryTitle(category: BlogCategory) {
