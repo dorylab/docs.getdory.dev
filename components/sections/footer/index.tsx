@@ -56,6 +56,7 @@ const footerColumns: FooterColumn[] = [
     title: "Partner",
     links: [
       { label: "Oumomo", href: "https://www.oumomo.ai/", external: true },
+      { label: "FastMoss", href: "https://www.fastmoss.com/dashboard", external: true },
     ],
   },
   {
