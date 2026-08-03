@@ -49,6 +49,7 @@ export type BlogCategory =
 export type BlogPost = {
   slug: string;
   category: BlogCategory;
+  featured: boolean;
   title: string;
   description: string;
   version: string;
@@ -159,6 +160,7 @@ function buildReleasePost(
   return {
     slug,
     category: RELEASE_NOTES_CATEGORY,
+    featured: false,
     title,
     description: descriptionSource.slice(0, 180),
     version,
@@ -212,6 +214,7 @@ async function buildLocalBlogPost(
   const category = resolveBlogCategory(
     (entry as { category?: unknown }).category,
   );
+  const featured = (entry as { featured?: unknown }).featured === true;
   const descriptionSource =
     typeof entry.description === "string" && entry.description.trim().length > 0
       ? entry.description
@@ -220,6 +223,7 @@ async function buildLocalBlogPost(
   return {
     slug,
     category,
+    featured,
     title: entry.title,
     description: descriptionSource.slice(0, 180),
     version: getBlogCategoryTitle(category),
@@ -329,9 +333,13 @@ export const getReleaseNotes = cache(
       postsBySlug.set(post.slug, post);
     }
 
-    return Array.from(postsBySlug.values()).sort((left, right) =>
-      compareVersions(left.version, right.version),
-    );
+    return Array.from(postsBySlug.values()).sort((left, right) => {
+      if (left.featured !== right.featured) {
+        return left.featured ? -1 : 1;
+      }
+
+      return compareVersions(left.version, right.version);
+    });
   },
 );
 
