@@ -127,6 +127,26 @@
             }
           ]
         },
+        "editData": {
+          "label": "Data Editor",
+          "title": "Edita datos directamente, con cada cambio bajo control",
+          "description": "Edita celdas directamente en la tabla y Dory reúne cada cambio en un solo lugar. Antes de aplicarlos, revisa los valores anteriores y nuevos, inspecciona el SQL o deshaz cambios individuales.",
+          "imageAlt": "Data Editor de Dory con edición dentro de la tabla, identidad de fila y Pending Changes listos para revisar o deshacer",
+          "features": [
+            {
+              "title": "Edita directamente en la tabla",
+              "description": "Selecciona una celda y actualízala en el momento. Dory usa la identidad de la fila para apuntar al registro correcto, sin que tengas que escribir sentencias UPDATE."
+            },
+            {
+              "title": "Revisa los cambios antes de aplicarlos",
+              "description": "Pending Changes reúne todas las modificaciones para que compares los valores originales y nuevos antes de escribirlos en la base de datos."
+            },
+            {
+              "title": "Vistas Visual y SQL",
+              "description": "Revisa los cambios visualmente o cambia a SQL para inspeccionar las sentencias exactas, con la opción de deshacer cada modificación por separado."
+            }
+          ]
+        },
         "dailyWorkflow": {
           "label": "Flujo SQL diario",
           "title": "Más que escribir SQL. Comprende, visualiza y conserva todo el proceso de exploración.",

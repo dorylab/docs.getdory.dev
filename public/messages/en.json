@@ -367,6 +367,26 @@
             }
           ]
         },
+        "editData": {
+          "label": "Data Editor",
+          "title": "Edit data directly, with every change under control",
+          "description": "Edit cells directly in the table, and Dory gathers every change in one place. Before applying anything, review the old and new values, inspect the SQL, or undo individual changes.",
+          "imageAlt": "Dory Data Editor showing in-table editing, row identity, and Pending Changes ready to review or undo",
+          "features": [
+            {
+              "title": "Edit directly in the table",
+              "description": "Select a cell and update it in place. Dory uses the row identity to target the correct record, without requiring you to write UPDATE statements."
+            },
+            {
+              "title": "Review changes before applying them",
+              "description": "Pending Changes brings every edit together so you can compare the original and updated values before they reach the database."
+            },
+            {
+              "title": "Visual and SQL views",
+              "description": "Review changes visually or switch to SQL to inspect the exact statements, with the option to undo each edit individually."
+            }
+          ]
+        },
         "dailyWorkflow": {
           "label": "Daily SQL workflow",
           "title": "More than writing SQL. Understand, visualize, and preserve the entire exploration.",

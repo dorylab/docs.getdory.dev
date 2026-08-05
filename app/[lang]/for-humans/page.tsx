@@ -22,6 +22,7 @@ import HeroPreview from "@/public/hero.png";
 import ChartsPreview from "@/public/images/core-features/dory-desktop-sql-console-sqlite-charts.png";
 import ExplorerPreview from "@/public/images/core-features/dory-explorer-table-overview.png";
 import WorkspacePreview from "@/public/images/core-features/dory-desktop-sql-console-sqlite-results.png";
+import EditDataPreview from "@/public/images/for-humans/dory-edit-data-pending-changes.png";
 import QueryHistoryPreview from "@/public/images/for-humans/play-query-history.png";
 import SavedQueriesPreview from "@/public/images/for-humans/play-saved-queries.png";
 import LargeResultSetPreview from "@/public/large-resultset-2.png";
@@ -201,6 +202,7 @@ export default async function ForHumansPage({ params }: PageProps) {
   const completionFeatures = t.raw("agentHome.humans.workspace.completionFeatures") as TextItem[];
   const capabilities = t.raw("agentHome.humans.workspace.capabilities") as HighlightedTextItem[];
   const resultFeatures = t.raw("agentHome.humans.results.features") as TextItem[];
+  const editDataFeatures = t.raw("agentHome.humans.editData.features") as TextItem[];
   const dailyFeatures = [
     {
       id: "explorer",
@@ -366,6 +368,47 @@ export default async function ForHumansPage({ params }: PageProps) {
                 sizes="(max-width: 1023px) calc(100vw - 72px), 700px"
                 className="lg:order-1"
                 magnifier={{ zoom: 1.8 }}
+              />
+            </div>
+          </section>
+
+          <section className="border-b border-dory-line py-16 md:py-24">
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-center lg:gap-12">
+              <div>
+                <p className="text-[11px] font-medium tracking-[0.16em] text-dory-muted uppercase">
+                  {t("agentHome.humans.editData.label")}
+                </p>
+                <h2
+                  className={cn(
+                    "mt-3 max-w-xl text-[clamp(2rem,3vw,2.75rem)] leading-[1.1] font-medium tracking-[-0.03em] text-balance",
+                    isCjk && "text-[clamp(1.875rem,2.8vw,2.5rem)] leading-[1.16] tracking-[-0.025em]",
+                  )}
+                >
+                  {t("agentHome.humans.editData.title")}
+                </h2>
+                <p className="mt-4 max-w-xl text-base leading-7 text-pretty text-dory-muted">
+                  {t("agentHome.humans.editData.description")}
+                </p>
+
+                <div className="mt-8 border-t border-dory-line">
+                  {editDataFeatures.map((item, index) => (
+                    <article key={item.title} className="grid grid-cols-[28px_1fr] gap-3 border-b border-dory-line py-4 last:border-b-0">
+                      <span className="pt-0.5 font-mono text-[10px] text-dory-muted">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <div>
+                        <h3 className="text-sm font-medium tracking-[-0.01em]">{item.title}</h3>
+                        <p className="mt-1.5 text-sm leading-6 text-dory-muted">{item.description}</p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+
+              <PaintedProductFrame
+                src={EditDataPreview}
+                alt={t("agentHome.humans.editData.imageAlt")}
+                sizes="(max-width: 1023px) calc(100vw - 72px), 700px"
               />
             </div>
           </section>

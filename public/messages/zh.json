@@ -127,6 +127,26 @@
             }
           ]
         },
+        "editData": {
+          "label": "Data Editor",
+          "title": "直接编辑数据，每一步都清晰可控",
+          "description": "在表格中直接修改单元格，Dory 会把每一项变更集中起来。提交前查看原值、新值与对应 SQL，不确定时可以逐项撤销。",
+          "imageAlt": "Dory Data Editor 展示表格内编辑、行身份识别，以及可审阅和撤销的 Pending Changes",
+          "features": [
+            {
+              "title": "在表格里直接修改",
+              "description": "选中单元格即可编辑；Dory 根据行标识准确定位要更新的记录，无需手写 UPDATE。"
+            },
+            {
+              "title": "提交前集中审阅",
+              "description": "Pending Changes 汇总所有待提交修改，让你在写入数据库前清楚对比原值与新值。"
+            },
+            {
+              "title": "Visual 与 SQL 双视图",
+              "description": "用可视化方式确认变更，或切换到 SQL 检查实际语句；每项修改都可以单独撤销。"
+            }
+          ]
+        },
         "dailyWorkflow": {
           "label": "日常 SQL 工作流",
           "title": "不止写 SQL。理解、可视化并保存整个探索过程。",

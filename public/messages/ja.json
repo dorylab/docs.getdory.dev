@@ -127,6 +127,26 @@
             }
           ]
         },
+        "editData": {
+          "label": "Data Editor",
+          "title": "データを直接編集。すべての変更を確実に管理",
+          "description": "テーブルのセルを直接編集すると、Dory がすべての変更をひとつにまとめます。適用前に変更前後の値や SQL を確認し、必要に応じて変更を個別に取り消せます。",
+          "imageAlt": "テーブル内編集、行の識別、確認や取り消しが可能な Pending Changes を表示する Dory Data Editor",
+          "features": [
+            {
+              "title": "テーブル上で直接編集",
+              "description": "セルを選択してその場で更新できます。Dory が行識別子から対象レコードを正確に特定するため、UPDATE 文を手書きする必要はありません。"
+            },
+            {
+              "title": "適用前に変更をまとめて確認",
+              "description": "Pending Changes にすべての編集を集約し、データベースへ書き込む前に変更前と変更後の値を比較できます。"
+            },
+            {
+              "title": "Visual と SQL の両方で確認",
+              "description": "変更を視覚的に確認するか、SQL に切り替えて実際の文を検証できます。各変更は個別に取り消せます。"
+            }
+          ]
+        },
         "dailyWorkflow": {
           "label": "日常の SQL ワークフロー",
           "title": "SQL だけではありません。理解し、可視化し、探索の全工程を保存します。",
