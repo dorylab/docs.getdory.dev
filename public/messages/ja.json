@@ -56,6 +56,13 @@
         "label": "人向け",
         "title": "AI で強化された次世代の SQL ワークスペース",
         "description": "データベースの閲覧、SQL の作成、クエリ結果の管理に加え、AI を使ってデータを探索し、クエリを最適化して分析を完了できます。",
+        "cta": {
+          "label": "次のクエリを始める準備はできましたか？",
+          "title": "次のクエリを Dory で始めよう。",
+          "description": "Dory をダウンロードして実際のデータベースで作業するか、GitHub でオープンソースプロジェクトをご覧ください。",
+          "download": "Dory をダウンロード",
+          "github": "GitHub で見る"
+        },
         "metaTitle": "Dory for Humans — AI SQL クライアントとデータベースワークスペース",
         "metaDescription": "Dory でデータベースを参照し、SQL を作成・保存し、クエリ履歴を開き直し、完全な ResultSet の確認、チャート作成、エクスポート、Agent との引き継ぎを行えます。",
         "workspace": {

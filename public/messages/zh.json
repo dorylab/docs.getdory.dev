@@ -56,6 +56,13 @@
         "label": "人类用户",
         "title": "AI 增强的新一代 SQL 工作台",
         "description": "浏览数据库、编写 SQL、管理查询结果，并使用 AI 探索数据、优化查询和完成分析。",
+        "cta": {
+          "label": "准备好开始下一次查询",
+          "title": "用 Dory 开始你的下一次查询",
+          "description": "下载 Dory，连接真实数据库开始工作；也可以前往 GitHub 查看开源项目。",
+          "download": "下载 Dory",
+          "github": "在 GitHub 上查看"
+        },
         "metaTitle": "Dory 人类用户版 — AI SQL Client 与数据库工作台",
         "metaDescription": "使用 Dory 浏览数据库、编写和保存 SQL、重开查询历史、检查完整 ResultSet、创建图表、导出数据，并继续 Agent 的工作。",
         "workspace": {

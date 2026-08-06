@@ -296,6 +296,13 @@
         "label": "For Humans",
         "title": "The next-generation SQL workspace, enhanced by AI",
         "description": "Browse databases, write SQL, manage query results, and use AI to explore data, optimize queries, and complete analyses.",
+        "cta": {
+          "label": "Ready for the next query?",
+          "title": "Start your next query with Dory.",
+          "description": "Download Dory to work with your real database, or explore the open-source project on GitHub.",
+          "download": "Download Dory",
+          "github": "View on GitHub"
+        },
         "metaTitle": "Dory for Humans — AI SQL Client and Database Workspace",
         "metaDescription": "Browse databases, write and save SQL, reopen query history, inspect complete result sets, create charts, export data, and continue agent work in Dory.",
         "workspace": {

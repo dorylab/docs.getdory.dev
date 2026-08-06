@@ -56,6 +56,13 @@
         "label": "Para personas",
         "title": "El espacio de trabajo SQL de nueva generación, potenciado por IA",
         "description": "Explora bases de datos, escribe SQL, gestiona los resultados de las consultas y usa la IA para explorar datos, optimizar consultas y completar análisis.",
+        "cta": {
+          "label": "¿Listo para tu próxima consulta?",
+          "title": "Empieza tu próxima consulta con Dory.",
+          "description": "Descarga Dory para trabajar con tu base de datos real o explora el proyecto open source en GitHub.",
+          "download": "Descargar Dory",
+          "github": "Ver en GitHub"
+        },
         "metaTitle": "Dory para personas — Cliente SQL con IA y espacio de bases de datos",
         "metaDescription": "Explora bases de datos, escribe y guarda SQL, reabre el historial, revisa ResultSets completos, crea gráficos, exporta datos y continúa el trabajo de agentes en Dory.",
         "workspace": {
