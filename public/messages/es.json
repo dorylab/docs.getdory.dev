@@ -54,7 +54,7 @@
       },
       "humans": {
         "label": "Para personas",
-        "title": "Un espacio SQL completo, mejorado con IA.",
+        "title": "El espacio de trabajo SQL de nueva generación, potenciado por IA",
         "description": "Explora bases de datos, escribe SQL, gestiona los resultados de las consultas y usa la IA para explorar datos, optimizar consultas y completar análisis.",
         "metaTitle": "Dory para personas — Cliente SQL con IA y espacio de bases de datos",
         "metaDescription": "Explora bases de datos, escribe y guarda SQL, reabre el historial, revisa ResultSets completos, crea gráficos, exporta datos y continúa el trabajo de agentes en Dory.",
@@ -144,6 +144,46 @@
             {
               "title": "Vistas Visual y SQL",
               "description": "Revisa los cambios visualmente o cambia a SQL para inspeccionar las sentencias exactas, con la opción de deshacer cada modificación por separado."
+            }
+          ]
+        },
+        "importData": {
+          "label": "Data Import",
+          "title": "Importación de datos",
+          "description": "Importa datos CSV o TSV en tu base de datos. Previsualiza el archivo, elige la tabla de destino y confirma el mapeo de columnas antes de escribir nada; si falla la conversión o la escritura, se revierte toda la importación.",
+          "imageAlt": "Data Import de Dory con el orden de columnas CSV, campos de origen, campos de destino y mapeo de tipos",
+          "features": [
+            {
+              "title": "Previsualiza antes de decidir cómo importar",
+              "description": "Revisa muestras de datos, tipos de columna detectados y tasas de valores nulos, y confirma el delimitador, la fila de encabezado y la codificación."
+            },
+            {
+              "title": "Mapea cada columna de origen a su destino",
+              "description": "Renombra, ignora y reordena columnas; elige tipos seguros para una tabla nueva o alinea los campos con un esquema existente."
+            },
+            {
+              "title": "Una transacción, reversión completa si falla",
+              "description": "Todos los lotes se escriben en una única transacción atómica, por lo que un error de conversión o de base de datos nunca deja una importación parcial."
+            }
+          ]
+        },
+        "erd": {
+          "label": "ERD",
+          "title": "Explorador visual de esquemas",
+          "description": "Explora el esquema de tu base de datos como un gráfico visual de relaciones. Consulta tablas, claves primarias, claves foráneas y rutas de unión, y busca o selecciona una tabla para entender cómo se conecta antes de escribir un JOIN.",
+          "imageAlt": "ERD de Dory con las tablas, claves primarias, claves foráneas y relaciones de la base de datos Pagila",
+          "features": [
+            {
+              "title": "Claves y relaciones de un vistazo",
+              "description": "Cada tabla muestra sus columnas clave, tipos de datos y número de relaciones, con enlaces que llegan a los campos correspondientes."
+            },
+            {
+              "title": "Céntrate en la ruta de unión relevante",
+              "description": "Busca o selecciona una tabla para resaltar las tablas y relaciones vecinas dentro de un esquema complejo."
+            },
+            {
+              "title": "Adapta y exporta el gráfico para cada tarea",
+              "description": "Alterna entre las columnas clave y todas las columnas, usa el diseño automático y la vista a pantalla completa, y exporta el resultado en PNG o SVG."
             }
           ]
         },

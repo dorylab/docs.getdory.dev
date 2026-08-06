@@ -54,7 +54,7 @@
       },
       "humans": {
         "label": "人类用户",
-        "title": "完整的 SQL 工作台，由 AI 进一步增强。",
+        "title": "AI 增强的新一代 SQL 工作台",
         "description": "浏览数据库、编写 SQL、管理查询结果，并使用 AI 探索数据、优化查询和完成分析。",
         "metaTitle": "Dory 人类用户版 — AI SQL Client 与数据库工作台",
         "metaDescription": "使用 Dory 浏览数据库、编写和保存 SQL、重开查询历史、检查完整 ResultSet、创建图表、导出数据，并继续 Agent 的工作。",
@@ -144,6 +144,46 @@
             {
               "title": "Visual 与 SQL 双视图",
               "description": "用可视化方式确认变更，或切换到 SQL 检查实际语句；每项修改都可以单独撤销。"
+            }
+          ]
+        },
+        "importData": {
+          "label": "Data Import",
+          "title": "数据导入",
+          "description": "导入 CSV 或 TSV 数据。上传文件后先预览内容、选择目标表并确认字段映射；确认无误后再写入数据库，转换或写入失败时整次回滚。",
+          "imageAlt": "Dory Data Import 展示 CSV 字段顺序、源字段、目标字段和目标类型映射",
+          "features": [
+            {
+              "title": "先预览，再决定怎么导入",
+              "description": "检查数据样本、识别到的字段类型与空值情况，并确认分隔符、表头和编码。"
+            },
+            {
+              "title": "把源字段准确映射到目标",
+              "description": "重命名、忽略和重新排序列，为新表选择安全类型，或匹配已有表结构。"
+            },
+            {
+              "title": "一次提交，失败完整回滚",
+              "description": "通过原子事务写入全部批次，转换或数据库错误不会留下半完成的数据。"
+            }
+          ]
+        },
+        "erd": {
+          "label": "ERD",
+          "title": "可视化 Schema 浏览器",
+          "description": "用可视化关系图浏览数据库 Schema。查看表、主键、外键和连接路径，搜索或聚焦目标表，在写 JOIN 前确认表之间如何关联。",
+          "imageAlt": "Dory ERD 展示 Pagila 数据库中的表、主键、外键与连接关系",
+          "features": [
+            {
+              "title": "主外键关系一眼看清",
+              "description": "每张表集中展示关键字段、数据类型与关系数量，连线准确指向对应字段。"
+            },
+            {
+              "title": "聚焦真正需要的连接路径",
+              "description": "搜索或选中目标表，突出相邻表与关系，在复杂 Schema 中快速理清查询路径。"
+            },
+            {
+              "title": "按任务整理并导出关系图",
+              "description": "切换关键字段或全部字段，使用自动布局与全屏视图，并将结果导出为 PNG 或 SVG。"
             }
           ]
         },

@@ -294,7 +294,7 @@
       },
       "humans": {
         "label": "For Humans",
-        "title": "A complete SQL workspace, enhanced by AI.",
+        "title": "The next-generation SQL workspace, enhanced by AI",
         "description": "Browse databases, write SQL, manage query results, and use AI to explore data, optimize queries, and complete analyses.",
         "metaTitle": "Dory for Humans — AI SQL Client and Database Workspace",
         "metaDescription": "Browse databases, write and save SQL, reopen query history, inspect complete result sets, create charts, export data, and continue agent work in Dory.",
@@ -384,6 +384,46 @@
             {
               "title": "Visual and SQL views",
               "description": "Review changes visually or switch to SQL to inspect the exact statements, with the option to undo each edit individually."
+            }
+          ]
+        },
+        "importData": {
+          "label": "Data Import",
+          "title": "Data Import",
+          "description": "Import CSV or TSV data into your database. Preview the file, choose the target table, and confirm the column mapping before anything is written; conversion or write errors roll back the entire import.",
+          "imageAlt": "Dory Data Import showing CSV column order, source fields, target fields, and target type mapping",
+          "features": [
+            {
+              "title": "Preview before choosing how to import",
+              "description": "Review data samples, detected column types, and null rates, then confirm the delimiter, header row, and encoding."
+            },
+            {
+              "title": "Map every source column to its destination",
+              "description": "Rename, ignore, and reorder columns; choose safe types for a new table or align fields with an existing schema."
+            },
+            {
+              "title": "One commit, complete rollback on failure",
+              "description": "All batches are written in a single atomic transaction, so conversion or database errors never leave a partial import."
+            }
+          ]
+        },
+        "erd": {
+          "label": "ERD",
+          "title": "Visual Schema Explorer",
+          "description": "Explore your database schema as a visual relationship graph. See tables, primary keys, foreign keys, and join paths, then search for or focus on a table to understand how it connects before writing a JOIN.",
+          "imageAlt": "Dory ERD showing tables, primary keys, foreign keys, and relationships in the Pagila database",
+          "features": [
+            {
+              "title": "See keys and relationships at a glance",
+              "description": "Each table shows its key columns, data types, and relationship count, with links connected to the exact fields."
+            },
+            {
+              "title": "Focus on the join path that matters",
+              "description": "Search for or select a table to highlight its neighboring tables and relationships within a complex schema."
+            },
+            {
+              "title": "Shape and export the graph for the task",
+              "description": "Switch between key columns and all columns, use automatic layout and fullscreen view, then export the result as PNG or SVG."
             }
           ]
         },
