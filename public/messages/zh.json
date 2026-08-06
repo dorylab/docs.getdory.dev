@@ -216,7 +216,7 @@
             "label": "Charts",
             "title": "从结果到图表，不离开当前工作区",
             "description": "把刚刚验证过的查询结果直接转成图表，让 SQL、行数据和可视化始终保持在一起。",
-            "imageAlt": "Dory SQL Workspace 展示月度收入查询及基于查询结果生成的交互式折线图",
+            "imageAlt": "Dory Charts 展示由查询结果生成的月份柱状图、图表配置和悬浮数值",
             "features": [
               {
                 "title": "在表格与图表之间切换",

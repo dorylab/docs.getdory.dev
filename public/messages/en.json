@@ -456,7 +456,7 @@
             "label": "Charts",
             "title": "Move from results to charts without leaving the workspace",
             "description": "Turn the result you just verified into a visual, while keeping the SQL, rows, and chart together.",
-            "imageAlt": "Dory SQL workspace showing a monthly revenue query and an interactive line chart built from its result",
+            "imageAlt": "Dory Charts showing a monthly bar chart generated from query results, its chart configuration, and a hovered value",
             "features": [
               {
                 "title": "Switch from rows to a visual",

@@ -216,7 +216,7 @@
             "label": "Charts",
             "title": "結果からチャートまで、Workspace を離れずに",
             "description": "確認したクエリ結果をそのまま可視化し、SQL、行データ、チャートを同じ場所に保ちます。",
-            "imageAlt": "月次売上クエリと、その結果から作成したインタラクティブな折れ線チャートを表示する Dory SQL Workspace",
+            "imageAlt": "クエリ結果から生成した月別の棒グラフ、チャート設定、ホバーした値を表示する Dory Charts",
             "features": [
               {
                 "title": "行データとチャートを切り替え",

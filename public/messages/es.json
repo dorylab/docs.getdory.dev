@@ -216,7 +216,7 @@
             "label": "Charts",
             "title": "Pasa de los resultados a los gráficos sin salir del Workspace",
             "description": "Convierte el resultado que acabas de validar en una visualización y conserva juntos el SQL, las filas y el gráfico.",
-            "imageAlt": "Workspace SQL de Dory con una consulta de ingresos mensuales y un gráfico de líneas interactivo creado con su resultado",
+            "imageAlt": "Dory Charts con un gráfico de barras mensual generado a partir de resultados, su configuración y un valor resaltado",
             "features": [
               {
                 "title": "Cambia de filas a una visualización",
