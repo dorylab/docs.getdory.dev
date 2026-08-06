@@ -8,7 +8,7 @@ import {
 import { DoryOgImage, HomeOgImage } from '@/lib/og-image';
 import { getHomeOgScreenshotDataUrl, getOgLogoDataUrl } from '@/lib/og-logo';
 
-const pages = ['home', 'blog', 'download'] satisfies MarketingOgPage[];
+const pages = ['home', 'blog', 'download', 'for-agents'] satisfies MarketingOgPage[];
 const lang = 'en';
 
 export const revalidate = false;

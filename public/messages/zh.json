@@ -329,80 +329,126 @@
         "statement": "人类和 Agent 不需要交换截图、复制的 SQL 或聊天摘要。他们使用的是同一个底层工作区。"
       },
       "agents": {
-        "label": "Agent",
-        "title": "给编程 Agent 一个真正的数据库工作区。",
-        "description": "让 Agent 探索 Schema、运行 SQL、保存结果，并创建人类可以检查和继续的工作。",
-        "connections": {
-          "title": "所有 Agent 共用一个连接层。",
-          "description": "只需在 Dory 中配置一次数据库，Codex、Claude Code 和其他兼容 Agent 就能通过同一个受控连接层工作。",
-          "imageAlt": "面向 Codex、Claude Code 和其他 Agent 的 Dory MCP 设置",
-          "agents": ["Codex", "Claude Code", "其他 Agent"],
-          "doryLayer": "Dory MCP 或 CLI",
-          "databaseLayer": "受控的数据库连接"
+        "label": "For Agents",
+        "hero": {
+          "title": "为 AI Agent 打造的数据工作区",
+          "description": "为 AI Agent 提供持久数据库访问、结构化产物，以及真正用于理解和推理数据的空间。",
+          "primaryCta": "安装 Dory MCP",
+          "secondaryCta": "查看 Agent Runs",
+          "runBadge": "已完成的 Agent Run",
+          "imageAlt": "包含结论、执行步骤、ResultSet 和打开工作区操作的 Dory Agent Run 详情",
+          "imageCaption": "一次完成的 Agent Run 会把结论、SQL 和工作区保存在一起。"
         },
-        "tools": {
-          "title": "高层工具，而不是几十个底层 Action。",
-          "description": "一组精简、稳定的工具直接对应真实数据工作流，减少工具混淆和无效调用。",
+        "context": {
+          "eyebrow": "带工作区上下文的 MCP",
+          "title": "给 Agent 上下文，而不只是连接。",
+          "description": "数据库连接只是起点。Dory 为每个任务建立正在工作的上下文，把 Schema、SQL、结果和可复用的工作区状态保存在一起。",
+          "temporaryLabel": "临时数据库 MCP",
+          "temporaryResult": "数据行返回聊天，然后上下文终止。",
+          "doryLabel": "Dory Agent 工作流",
           "items": [
-            "列出可用连接",
-            "探索 Schema 和表",
-            "运行只读 SQL",
-            "创建和管理工作区 Tab",
-            "访问已保存查询"
+            { "title": "连接", "description": "可见的数据源和权限" },
+            { "title": "Schema 元数据", "description": "表、字段、类型与关系" },
+            { "title": "当前 Agent Run", "description": "一个任务对应一个持久上下文" },
+            { "title": "工作区 Tab", "description": "Run 过程中生成、可检查的 SQL" },
+            { "title": "已保存查询", "description": "Dory 中已经存在的可复用分析" },
+            { "title": "ResultSet 引用", "description": "带血缘信息的结构化产物" }
           ]
         },
         "artifacts": {
-          "title": "Agent 创建工作，而不只是答案。",
-          "description": "每条有价值的查询都可以变成可编辑的 SQL Tab、持久结果集，或更大工作区的一部分。",
-          "modes": [
-            {
-              "title": "仅运行",
-              "description": "不需要工作区时，直接返回结果。"
-            },
-            {
-              "title": "创建新 Tab",
-              "description": "开始一个新的、可检查的分析单元。"
-            },
-            {
-              "title": "继续现有 Tab",
-              "description": "把下一步追加到正在进行的工作。"
-            },
-            {
-              "title": "替换 Tab 内容",
-              "description": "更新目标 Tab，同时保留 Run 上下文。"
-            }
-          ]
+          "eyebrow": "一等数据产物",
+          "title": "ResultSet 是一等 AI 产物",
+          "description": "Agent 不只是返回答案。每条有价值的查询都能创建持久 ResultSet，并继续关联它的 SQL、执行上下文和工作区。",
+          "transientLabel": "普通 MCP 的响应",
+          "lostLabel": "聊天结束后丢失",
+          "files": [
+            { "title": "manifest.json", "description": "状态、来源、行数和文件映射" },
+            { "title": "schema.arrow", "description": "带类型的字段 Schema" },
+            { "title": "preview.json", "description": "快速、有边界的结果预览" },
+            { "title": "data/*.parquet", "description": "可用时保存列式完整数据分片" },
+            { "title": "metadata / lineage", "description": "SQL、执行者、连接与父级结果" }
+          ],
+          "createdBy": "由 Agent 创建",
+          "exampleMeta": "前 100 位客户 · 分析了 1000 万笔订单",
+          "actions": ["在 Dory 中打开", "筛选", "图表", "导出", "继续分析", "查看元数据"]
         },
         "runs": {
+          "eyebrow": "持久运行历史",
           "title": "每次 Agent Run 都留下可检查的轨迹。",
-          "description": "Agent 工作会以包含 SQL、完整结果、结论和可读 Activity 的结构化 Run 保存，不会在聊天结束时消失。",
+          "description": "查询、ResultSet 引用、结论、执行步骤和失败记录都保存在同一个可读 Run 中，而不是埋在 Agent 聊天记录里。",
           "features": [
-            "检查查询、失败记录和中间尝试",
-            "打开完整结果集和生成的结论",
-            "在真正的工作区里编辑生成的 SQL",
-            "让另一个 Agent 继续同一任务"
+            "检查每条查询、失败记录和中间尝试",
+            "打开生成的结论与 ResultSet 引用",
+            "查看连接、状态、耗时和生成的 Tab",
+            "从同一个持久工作上下文继续任务"
           ],
-          "listAlt": "包含状态、数据源和产物信息的 Dory Agent Runs 列表",
-          "detailAlt": "包含摘要、结论和 Activity 的 Dory Agent Run 详情",
-          "workspaceAlt": "作为可编辑 SQL 工作区打开的 Dory Agent Run"
+          "imageAlt": "包含 Run 状态、数据源、结论预览和打开工作区操作的 Dory Agent Runs 列表"
+        },
+        "handoff": {
+          "eyebrow": "交给人类继续",
+          "title": "从 Agent 推理到人类协作",
+          "description": "当人类能检查同一份上下文时，Agent 才能工作得更快。打开生成的工作区，验证 SQL、调整分析并交付结果。",
+          "steps": ["Agent 分析", "打开工作区", "人类检查", "编辑 SQL", "筛选或制图", "导出或继续"],
+          "imageAlt": "以可编辑 SQL 工作区打开的 Dory Agent Run，包含生成的 Tab 和交接控件"
         },
         "runtime": {
-          "label": "随处运行",
-          "title": "Desktop、无界面或远程。",
-          "items": [
+          "eyebrow": "CLI 与 Headless Runtime",
+          "title": "Agent 在哪里运行，Dory 就在哪里运行",
+          "description": "无论是本地编程 Agent、长期运行的 HTTP 服务、CI，还是共享的自托管环境，都能使用同一套 Dory 工作流。",
+          "agents": ["Codex", "Claude Code", "Cursor", "自定义 Agent"],
+          "transports": ["stdio MCP", "HTTP MCP"],
+          "modes": [
             {
-              "title": "Dory Desktop",
-              "description": "复用本地连接、工作区历史和权限，适合交互式 Agent 工作。"
+              "title": "standalone",
+              "description": "状态独立保存在 ~/.dory，适合 Headless Server、CI 和自动化。"
             },
             {
-              "title": "Dory CLI",
-              "description": "在 Agent 旁边或开发环境中通过 stdio 无界面运行。"
+              "title": "desktop",
+              "description": "通过本地 Runtime 复用 Dory Desktop 的连接和工作区状态。"
             },
             {
-              "title": "Remote HTTP",
-              "description": "通过共享 Dory 实例集中管理远程环境的数据库访问。"
+              "title": "self-hosted",
+              "description": "与 Dory Web 共享应用数据库和加密连接状态。"
             }
           ]
+        },
+        "capabilities": {
+          "eyebrow": "为 AI 数据工作流而生",
+          "title": "从发现数据到交付结果，只用一层",
+          "description": "Dory 覆盖从 Agent 提问到产出可被人类信任、编辑和分享结果的完整路径。",
+          "taskLabel": "任务",
+          "detailLabel": "Dory 如何完成",
+          "supportLabel": "支持情况",
+          "supportedLabel": "支持",
+          "items": [
+            { "task": "探索未知数据库", "description": "先列出可见连接并搜索真实 Schema，再开始编写 SQL。" },
+            { "task": "理解 Schema", "description": "检查表、字段、类型、主键、Profile 和 DDL。" },
+            { "task": "生成 SQL", "description": "基于已验证的 Schema，在命名 Agent Run 中生成 SQL。" },
+            { "task": "执行分析", "description": "运行有边界的只读 SQL，并保留可审计的执行轨迹。" },
+            { "task": "保存结果", "description": "持久保存预览、元数据和 Parquet 支持的 ResultSet。" },
+            { "task": "可视化结论", "description": "在 Dory 中打开保存结果，继续筛选、Profile 和制图。" },
+            { "task": "与人类继续", "description": "在真实工作区打开同一份 SQL 和结果。" },
+            { "task": "导出产物", "description": "将可复用结果数据交付为 CSV 或 Parquet。" }
+          ]
+        },
+        "privacy": {
+          "eyebrow": "隐私与控制",
+          "title": "你的数据始终由你控制",
+          "description": "由你决定 Dory 在哪里运行、Agent 可以使用哪些凭据，以及哪个 AI Provider 会接收上下文。",
+          "items": [
+            { "title": "强制只读 SQL", "description": "Agent SQL 会经过只读校验；生产环境仍应使用数据库只读凭据作为最终边界。" },
+            { "title": "本地或自托管", "description": "可在 Agent 旁、Desktop、本地 Headless 容器或自己的 Dory Web 部署中运行。" },
+            { "title": "自带模型", "description": "选择组织级 AI Provider、模型、Endpoint，或自托管的兼容服务。" },
+            { "title": "分级权限与审计", "description": "分离 read、write 与 AI Scope，并保留 Agent Run 和 SQL 执行轨迹。" }
+          ],
+          "providerNote": "启用第三方 AI Provider 后，Prompt、Schema 上下文、SQL、结果或相关元数据可能会按照该 Provider 的条款与隐私政策进行处理。"
+        },
+        "cta": {
+          "eyebrow": "从真实工作流开始",
+          "title": "构建你的第一个数据 Agent",
+          "description": "连接一个数据库、检查 Schema、运行只读分析，然后在 Dory 中打开完成的工作。",
+          "primary": "开始使用",
+          "secondary": "查看 MCP 文档"
         }
       },
       "workspace": {

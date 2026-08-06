@@ -3,10 +3,11 @@ import { getTranslations } from 'next-intl/server';
 
 import { defaultLanguage, type Language } from '@/lib/i18n';
 
-export type MarketingOgPage = 'home' | 'blog' | 'download';
+export type MarketingOgPage = 'home' | 'blog' | 'download' | 'for-agents';
 
 const siteName = 'Dory';
 const homeOgImageVersion = '20260720-humans-agents';
+const forAgentsOgImageVersion = '20260807-agent-workspace';
 const homeTitles: Partial<Record<Language, string>> = {
   en: 'Dory - SQL workspace for humans and agents',
   zh: 'Dory - 面向人类和 Agent 的 SQL 工作台',
@@ -16,7 +17,12 @@ const homeTitles: Partial<Record<Language, string>> = {
 
 export function getMarketingOgImage(page: MarketingOgPage, lang: string) {
   const localeSegment = lang === defaultLanguage ? '' : `/${lang}`;
-  const version = page === 'home' ? `?v=${homeOgImageVersion}` : '';
+  const version =
+    page === 'home'
+      ? `?v=${homeOgImageVersion}`
+      : page === 'for-agents'
+        ? `?v=${forAgentsOgImageVersion}`
+        : '';
 
   return {
     url: `/og${localeSegment}/pages/${page}/image.png${version}`,
@@ -49,6 +55,18 @@ export async function getMarketingOgContent(
       description: t('description', { product: 'Dory' }),
       site: siteName,
       label: 'Download',
+      tone: 'default' as const
+    };
+  }
+
+  if (page === 'for-agents') {
+    const t = await getTranslations({ locale: lang, namespace: 'landing' });
+
+    return {
+      title: t('agentHome.agents.hero.title'),
+      description: t('agentHome.agents.hero.description'),
+      site: siteName,
+      label: 'For Agents',
       tone: 'default' as const
     };
   }

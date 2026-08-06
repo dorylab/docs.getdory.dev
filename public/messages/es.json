@@ -329,80 +329,117 @@
         "statement": "Personas y agentes no intercambian capturas, SQL copiado ni resúmenes del chat. Trabajan sobre el mismo espacio subyacente."
       },
       "agents": {
-        "label": "Para agentes",
-        "title": "Da a los agentes de código un espacio de base de datos real.",
-        "description": "Permite que exploren esquemas, ejecuten SQL, conserven resultados y creen trabajo que las personas puedan revisar y continuar.",
-        "connections": {
-          "title": "Una capa de conexión para cada agente.",
-          "description": "Configura una base de datos una sola vez en Dory y deja que Codex, Claude Code y otros agentes compatibles trabajen mediante la misma capa controlada.",
-          "imageAlt": "Configuración MCP de Dory para Codex, Claude Code y otros agentes",
-          "agents": ["Codex", "Claude Code", "Otros agentes"],
-          "doryLayer": "Dory MCP o CLI",
-          "databaseLayer": "Conexiones de base de datos controladas"
+        "label": "For Agents",
+        "hero": {
+          "title": "El workspace de datos creado para agentes de IA",
+          "description": "Ofrece a los agentes de IA acceso persistente a bases de datos, artefactos estructurados y un lugar para razonar sobre los datos.",
+          "primaryCta": "Instalar Dory MCP",
+          "secondaryCta": "Ver Agent Runs",
+          "runBadge": "Agent Run completado",
+          "imageAlt": "Detalle de un Agent Run de Dory con conexión, exploración de esquema, SQL, ResultSet y hallazgos",
+          "imageCaption": "Un Agent Run real de Dory. SQL, resultados y hallazgos quedan en un único rastro inspeccionable."
         },
-        "tools": {
-          "title": "Herramientas de alto nivel, no decenas de primitivas.",
-          "description": "Un catálogo pequeño y enfocado representa flujos de datos reales, reduciendo la confusión y las llamadas innecesarias.",
+        "context": {
+          "eyebrow": "MCP con contexto del workspace",
+          "title": "Dales contexto a los agentes, no solo conexiones.",
+          "description": "Un MCP convencional ejecuta SQL y devuelve filas. Dory mantiene el trabajo actual, el esquema, el conocimiento guardado y las referencias de resultados en el mismo workspace.",
+          "temporaryLabel": "MCP de base de datos temporal",
+          "temporaryResult": "Devuelve filas y pierde el contexto",
+          "doryLabel": "Dory Workspace Context",
           "items": [
-            "Listar conexiones disponibles",
-            "Explorar esquemas y tablas",
-            "Ejecutar SQL de solo lectura",
-            "Crear y gestionar pestañas del espacio",
-            "Acceder a consultas guardadas"
+            { "title": "Conexiones", "description": "Fuente de datos actual y límites seguros de ejecución." },
+            { "title": "Metadatos de esquema", "description": "Tablas, columnas, tipos y relaciones." },
+            { "title": "Agent Run actual", "description": "Objetivo, pasos, SQL y hallazgos del trabajo en curso." },
+            { "title": "Pestañas del workspace", "description": "Unidades de análisis que una persona puede abrir y editar." },
+            { "title": "Consultas guardadas", "description": "SQL validado que el equipo puede reutilizar." },
+            { "title": "Referencias a Result Sets", "description": "Enlaces persistentes a resultados reutilizables." }
           ]
         },
         "artifacts": {
-          "title": "Los agentes crean trabajo, no solo respuestas.",
-          "description": "Cada consulta útil puede convertirse en una pestaña SQL editable, un resultado persistente o parte de un espacio mayor.",
-          "modes": [
-            {
-              "title": "Solo ejecutar",
-              "description": "Devuelve el resultado directamente cuando no hace falta un espacio."
-            },
-            {
-              "title": "Crear pestaña",
-              "description": "Inicia una nueva unidad de análisis inspeccionable."
-            },
-            {
-              "title": "Continuar pestaña",
-              "description": "Añade el siguiente paso al trabajo que ya está en curso."
-            },
-            {
-              "title": "Reemplazar contenido",
-              "description": "Actualiza una pestaña manteniendo el contexto del Run."
-            }
-          ]
+          "eyebrow": "Resultados de primera clase",
+          "title": "Los Result Sets son artefactos de IA de primera clase",
+          "description": "Los agentes no solo devuelven respuestas. Crean artefactos de datos estructurados que se pueden inspeccionar, reutilizar, visualizar y exportar.",
+          "transientLabel": "MCP convencional",
+          "lostLabel": "se pierde",
+          "files": [
+            { "title": "manifest.json", "description": "Identidad, estado e información de almacenamiento del artefacto." },
+            { "title": "schema.arrow", "description": "Esquema legible por máquinas con nombres y tipos de columnas." },
+            { "title": "preview.json", "description": "Vista previa acotada para inspección rápida." },
+            { "title": "data/*.parquet", "description": "Datos columnares eficientes para resultados grandes." },
+            { "title": "metadata / lineage", "description": "Trazabilidad hasta el SQL, la conexión y el Run de origen." }
+          ],
+          "createdBy": "Creado por Agent",
+          "exampleMeta": "Top 100 clientes · 10 M de pedidos analizados",
+          "actions": ["Abrir en Dory", "Filtrar", "Gráfico", "Exportar", "Continuar análisis"]
         },
         "runs": {
-          "title": "Cada Agent Run deja un rastro inspeccionable.",
-          "description": "El trabajo se conserva como un Run estructurado con SQL, resultados completos, hallazgos y actividad legible; no desaparece al terminar el chat.",
+          "eyebrow": "Historial persistente",
+          "title": "Cada Agent Run deja un rastro que puedes inspeccionar.",
+          "description": "Un Run reúne pasos de ejecución, fallos e intentos intermedios, SQL generado, referencias a Result Sets y hallazgos finales en un único registro legible.",
           "features": [
-            "Revisa consultas, fallos e intentos intermedios",
-            "Abre resultados completos y hallazgos generados",
-            "Edita el SQL generado en un espacio real",
-            "Continúa la misma tarea con otro agente"
+            "Sigue la exploración del esquema y las llamadas a herramientas",
+            "Revisa fallos e intentos intermedios de SQL",
+            "Traza cada hallazgo hasta el resultado que lo respalda",
+            "Abre el workspace desde el mismo Run"
           ],
-          "listAlt": "Lista de Agent Runs de Dory con estado, fuente de datos y resultados",
-          "detailAlt": "Detalle de Agent Run de Dory con resumen, hallazgos y actividad",
-          "workspaceAlt": "Agent Run de Dory abierto como espacio SQL editable"
+          "imageAlt": "Lista de Agent Runs de Dory con estado, fuente de datos y artefactos"
+        },
+        "handoff": {
+          "eyebrow": "Continuidad con humanos",
+          "title": "Del razonamiento del Agent a la colaboración humana",
+          "description": "El Agent y la persona abren el mismo SQL, ResultSet y contexto del Run. La persona puede revisar el razonamiento, editar la consulta y continuar el análisis.",
+          "steps": ["Análisis del Agent", "Abrir workspace", "Revisión humana", "Editar SQL", "Ajustar filtros / gráfico", "Exportar o continuar"],
+          "imageAlt": "Workspace de Dory donde una persona revisa el SQL y ResultSet creados por un Agent"
         },
         "runtime": {
-          "label": "Ejecuta en cualquier lugar",
-          "title": "Desktop, sin interfaz o remoto.",
-          "items": [
-            {
-              "title": "Dory Desktop",
-              "description": "Reutiliza conexiones locales, historial y permisos para trabajo interactivo con agentes."
-            },
-            {
-              "title": "Dory CLI",
-              "description": "Ejecuta sin interfaz junto a un agente o en un entorno de desarrollo mediante stdio."
-            },
-            {
-              "title": "Remote HTTP",
-              "description": "Centraliza el acceso a bases de datos tras una instancia Dory compartida para entornos remotos."
-            }
+          "eyebrow": "CLI y ejecución headless",
+          "title": "Ejecuta Dory donde se ejecuten tus agentes",
+          "description": "Conecta el workspace de Dory a agentes de código y automatizaciones propias mediante MCP por stdio o HTTP.",
+          "agents": ["Codex", "Claude Code", "Cursor", "Custom Agent"],
+          "transports": ["stdio MCP", "HTTP MCP"],
+          "modes": [
+            { "title": "standalone", "description": "Ejecución totalmente headless junto al agente." },
+            { "title": "desktop", "description": "Reutiliza conexiones y workspaces de Dory Desktop." },
+            { "title": "self-hosted", "description": "Conecta con una instalación de Dory gestionada por tu equipo." }
           ]
+        },
+        "capabilities": {
+          "eyebrow": "Flujo completo",
+          "title": "Creado para flujos de datos con IA",
+          "description": "Desde explorar una base desconocida hasta entregar artefactos inspeccionables a una persona.",
+          "taskLabel": "Tarea",
+          "detailLabel": "Qué aporta Dory",
+          "supportLabel": "Soporte",
+          "supportedLabel": "Compatible",
+          "items": [
+            { "task": "Explorar una base desconocida", "description": "Investiga conexiones, esquema y datos de muestra paso a paso." },
+            { "task": "Entender el esquema", "description": "Mantiene tablas, columnas, tipos y relaciones en el contexto actual." },
+            { "task": "Generar SQL", "description": "Crea SQL inspeccionable basado en el esquema real." },
+            { "task": "Ejecutar análisis", "description": "Usa ejecución acotada y de solo lectura con resultados y errores trazables." },
+            { "task": "Guardar resultados", "description": "Conserva la salida como un artefacto ResultSet persistente." },
+            { "task": "Visualizar hallazgos", "description": "Continúa con filtros y gráficos desde el mismo resultado." },
+            { "task": "Entregar a una persona", "description": "Abre SQL, resultados y contexto del Run en el workspace." },
+            { "task": "Exportar artefactos", "description": "Entrega salidas reutilizables a otras herramientas y equipos." }
+          ]
+        },
+        "privacy": {
+          "eyebrow": "Privacidad y control",
+          "title": "Tus datos permanecen bajo tu control",
+          "description": "Elige cómo acceden los agentes a los datos, qué proveedor de modelos usas y dónde se ejecuta Dory, dentro de límites explícitos.",
+          "items": [
+            { "title": "SQL de solo lectura", "description": "El SQL del Agent se valida como solo lectura y se ejecuta con límites. También recomendamos cuentas de base de datos de solo lectura." },
+            { "title": "Local o headless", "description": "Ejecuta junto a Dory Desktop, en la CLI standalone o en un entorno gestionado por ti." },
+            { "title": "Tu proveedor de IA", "description": "Usa tu propio proveedor y modelo de IA para ajustarte a los requisitos de tu organización." },
+            { "title": "Límites de control independientes", "description": "Gestiona permisos de base de datos, ejecución de Dory y auditoría del proveedor de IA como capas separadas." }
+          ],
+          "providerNote": "Cuando habilitas un proveedor de IA externo, se aplican sus políticas de tratamiento, retención y entrenamiento de datos."
+        },
+        "cta": {
+          "eyebrow": "Tu primer flujo",
+          "title": "Crea tu primer agente de datos",
+          "description": "Conecta Dory MCP y deja que tu agente explore la base, ejecute análisis y conserve trabajo inspeccionable.",
+          "primary": "Empezar",
+          "secondary": "Ver documentación MCP"
         }
       },
       "workspace": {

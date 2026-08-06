@@ -570,79 +570,194 @@
       },
       "agents": {
         "label": "For Agents",
-        "title": "Give coding agents a real database workspace.",
-        "description": "Let agents explore schemas, run SQL, preserve results, and create work that humans can inspect and continue.",
-        "connections": {
-          "title": "One connection layer for every agent.",
-          "description": "Configure a database once in Dory, then let Codex, Claude Code, and other compatible agents work through the same governed connection layer.",
-          "imageAlt": "Dory MCP settings for Codex, Claude Code, and other agents",
-          "agents": ["Codex", "Claude Code", "Other agents"],
-          "doryLayer": "Dory MCP or CLI",
-          "databaseLayer": "Governed database connections"
+        "hero": {
+          "title": "The data workspace built for AI agents",
+          "description": "Give AI agents persistent database access, structured artifacts, and a place to reason about data.",
+          "primaryCta": "Install Dory MCP",
+          "secondaryCta": "See Agent Runs",
+          "runBadge": "Completed Agent Run",
+          "imageAlt": "Dory Agent Run detail with findings, execution steps, result sets, and an Open Workspace action",
+          "imageCaption": "A completed Agent Run keeps its findings, SQL, and workspace together."
         },
-        "tools": {
-          "title": "High-level tools, not dozens of primitives.",
-          "description": "A small, focused catalog maps directly to real data workflows, reducing tool confusion and unnecessary calls.",
+        "context": {
+          "eyebrow": "MCP with workspace context",
+          "title": "Give agents context, not just connections.",
+          "description": "A database connection is only the beginning. Dory gives every task an active work context that keeps schema, SQL, results, and reusable workspace state together.",
+          "temporaryLabel": "Temporary database MCP",
+          "temporaryResult": "Rows return to chat. Context ends here.",
+          "doryLabel": "Dory agent workflow",
           "items": [
-            "List available connections",
-            "Explore schemas and tables",
-            "Run read-only SQL",
-            "Create and manage workspace tabs",
-            "Access saved queries"
+            {
+              "title": "Connections",
+              "description": "Visible data sources and permissions"
+            },
+            {
+              "title": "Schema metadata",
+              "description": "Tables, columns, types, and relationships"
+            },
+            {
+              "title": "Current Agent Run",
+              "description": "One durable context for the task"
+            },
+            {
+              "title": "Workspace tabs",
+              "description": "Inspectable SQL created during the run"
+            },
+            {
+              "title": "Saved queries",
+              "description": "Reusable analysis already in Dory"
+            },
+            {
+              "title": "ResultSet references",
+              "description": "Structured outputs with lineage"
+            }
           ]
         },
         "artifacts": {
-          "title": "Agents create work, not just answers.",
-          "description": "Every useful query can become an editable SQL tab, a persistent result set, or part of a larger workspace.",
-          "modes": [
+          "eyebrow": "First-class outputs",
+          "title": "Result Sets are first-class AI artifacts",
+          "description": "Agents do not just return answers. Every useful query can create a durable ResultSet that stays attached to its SQL, execution context, and workspace.",
+          "transientLabel": "The usual MCP response",
+          "lostLabel": "Lost after the chat",
+          "files": [
             {
-              "title": "Run only",
-              "description": "Return a direct result when no workspace is needed."
+              "title": "manifest.json",
+              "description": "Status, source, row counts, and file map"
             },
             {
-              "title": "Create new tab",
-              "description": "Start a new, inspectable unit of analysis."
+              "title": "schema.arrow",
+              "description": "Typed column schema"
             },
             {
-              "title": "Continue existing tab",
-              "description": "Append the next step to work already in progress."
+              "title": "preview.json",
+              "description": "A fast, bounded result preview"
             },
             {
-              "title": "Replace tab content",
-              "description": "Update a target tab while preserving the run context."
+              "title": "data/*.parquet",
+              "description": "Columnar full-data parts when available"
+            },
+            {
+              "title": "metadata / lineage",
+              "description": "SQL, actor, connection, and parent results"
             }
-          ]
+          ],
+          "createdBy": "Created by Agent",
+          "exampleMeta": "Top 100 customers · analyzed 10M orders",
+          "actions": ["Open in Dory", "Filter", "Chart", "Export", "Continue analysis", "Inspect metadata"]
         },
         "runs": {
+          "eyebrow": "Persistent run history",
           "title": "Every agent run leaves an inspectable trail.",
-          "description": "Agent work is preserved as a structured run with SQL, complete results, findings, and readable activity—not lost when the chat ends.",
+          "description": "Queries, result references, findings, execution steps, and failures stay together as a readable run—not buried in an agent transcript.",
           "features": [
-            "Review the queries, failures, and intermediate attempts",
-            "Open complete result sets and generated findings",
-            "Edit the generated SQL in a real workspace",
-            "Continue the same task with another agent"
+            "Review every query, failure, and intermediate attempt",
+            "Open generated findings and ResultSet references",
+            "See the connection, status, duration, and generated tabs",
+            "Resume the task from the same durable work context"
           ],
-          "listAlt": "Dory Agent Runs list with status, data source, and generated output",
-          "detailAlt": "Dory Agent Run detail with summary, findings, and activity",
-          "workspaceAlt": "Dory Agent Run opened as an editable SQL workspace"
+          "imageAlt": "Dory Agent Runs list with run status, data source, findings preview, and Open Workspace action"
+        },
+        "handoff": {
+          "eyebrow": "Human handoff",
+          "title": "From Agent reasoning to human collaboration",
+          "description": "Agents work faster when people can inspect the same context. Open the generated workspace to verify the SQL, adjust the analysis, and deliver the result.",
+          "steps": ["Agent analysis", "Open workspace", "Human review", "Edit SQL", "Filter or chart", "Export or continue"],
+          "imageAlt": "Dory Agent Run opened as an editable SQL workspace with generated tabs and handoff controls"
         },
         "runtime": {
-          "label": "Run anywhere",
-          "title": "Desktop, headless, or remote.",
-          "items": [
+          "eyebrow": "CLI and headless runtime",
+          "title": "Run Dory anywhere your agents run",
+          "description": "Use the same Dory workflow from a local coding agent, a long-running HTTP service, CI, or a shared self-hosted environment.",
+          "agents": ["Codex", "Claude Code", "Cursor", "Custom Agent"],
+          "transports": ["stdio MCP", "HTTP MCP"],
+          "modes": [
             {
-              "title": "Dory Desktop",
-              "description": "Reuse local connections, workspace history, and permissions for interactive agent work."
+              "title": "standalone",
+              "description": "Independent state under ~/.dory for headless servers, CI, and automation."
             },
             {
-              "title": "Dory CLI",
-              "description": "Run headlessly beside an agent or inside a development environment over stdio."
+              "title": "desktop",
+              "description": "Reuse Dory Desktop connections and workspace state through the local runtime."
             },
             {
-              "title": "Remote HTTP",
-              "description": "Centralize database access behind a shared Dory instance for remote environments."
+              "title": "self-hosted",
+              "description": "Share the application database and encrypted connection state with Dory Web."
             }
           ]
+        },
+        "capabilities": {
+          "eyebrow": "Built for AI data workflows",
+          "title": "One layer from discovery to delivery",
+          "description": "Dory covers the full path between an agent question and a result a person can trust, edit, and share.",
+          "taskLabel": "Task",
+          "detailLabel": "How Dory handles it",
+          "supportLabel": "Support",
+          "supportedLabel": "Supported",
+          "items": [
+            {
+              "task": "Explore an unknown database",
+              "description": "List visible connections and search real schema before writing SQL."
+            },
+            {
+              "task": "Understand schema",
+              "description": "Inspect tables, columns, types, keys, profiles, and DDL."
+            },
+            {
+              "task": "Generate SQL",
+              "description": "Build SQL from verified schema inside a named Agent Run."
+            },
+            {
+              "task": "Execute analysis",
+              "description": "Run bounded, read-only SQL with an auditable execution trail."
+            },
+            {
+              "task": "Save results",
+              "description": "Persist previews, metadata, and Parquet-backed ResultSets."
+            },
+            {
+              "task": "Visualize findings",
+              "description": "Open preserved results in Dory to filter, profile, and chart."
+            },
+            {
+              "task": "Continue with humans",
+              "description": "Open the same generated SQL and results in a real workspace."
+            },
+            {
+              "task": "Export artifacts",
+              "description": "Deliver reusable result data as CSV or Parquet."
+            }
+          ]
+        },
+        "privacy": {
+          "eyebrow": "Privacy and control",
+          "title": "Your data stays under your control",
+          "description": "Choose where Dory runs, which credentials an agent can use, and which AI provider—if any—receives context.",
+          "items": [
+            {
+              "title": "Read-only SQL enforcement",
+              "description": "Agent SQL is validated as read-only. Use read-only database credentials as the final production boundary."
+            },
+            {
+              "title": "Local or self-hosted",
+              "description": "Run beside your agent, through Desktop, in a headless container, or on your own Dory Web deployment."
+            },
+            {
+              "title": "Bring your own model",
+              "description": "Choose an organization AI provider, model, endpoint, or a self-hosted compatible service."
+            },
+            {
+              "title": "Scoped access and audit",
+              "description": "Separate read, write, and AI scopes, then retain the Agent Run and SQL execution trail."
+            }
+          ],
+          "providerNote": "When you enable a third-party AI provider, prompts, schema context, SQL, results, or related metadata may be processed under that provider’s terms and privacy policy."
+        },
+        "cta": {
+          "eyebrow": "Start with a real workflow",
+          "title": "Build your first data agent",
+          "description": "Connect one database, inspect its schema, run a read-only analysis, and open the finished work in Dory.",
+          "primary": "Get Started",
+          "secondary": "View MCP Docs"
         }
       },
       "workspace": {

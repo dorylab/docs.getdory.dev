@@ -63,21 +63,21 @@ export function baseOptions(locale: string): BaseLayoutProps {
     },
     zh: {
       forHumans: '人类用户',
-      forAgents: 'Agent',
+      forAgents: 'For Agents',
       docs: '文档',
       blog: '博客',
       download: '下载'
     },
     ja: {
       forHumans: '人向け',
-      forAgents: 'エージェント向け',
+      forAgents: 'For Agents',
       docs: 'ドキュメント',
       blog: 'ブログ',
       download: 'ダウンロード'
     },
     es: {
       forHumans: 'Para personas',
-      forAgents: 'Para agentes',
+      forAgents: 'For Agents',
       docs: 'Documentación',
       blog: 'Blog',
       download: 'Descargar'

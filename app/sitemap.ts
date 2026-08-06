@@ -135,6 +135,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const marketingPaths = [
     { pathname: '', priority: 1 },
     { pathname: docsBasePath, priority: 0.95 },
+    { pathname: '/for-agents', priority: 0.85 },
     { pathname: '/download', priority: 0.7 },
     { pathname: '/blog', priority: 0.7 },
     { pathname: '/policies', priority: 0.35 },

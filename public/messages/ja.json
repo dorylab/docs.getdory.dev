@@ -329,80 +329,117 @@
         "statement": "人と Agent が交換するのは、スクリーンショットやコピーした SQL、チャット要約ではありません。同じ基盤ワークスペースで作業します。"
       },
       "agents": {
-        "label": "エージェント向け",
-        "title": "コーディング Agent に、本物のデータベースワークスペースを。",
-        "description": "Agent がスキーマを探索し、SQL を実行し、結果を保存し、人が確認して継続できる作業を作成できます。",
-        "connections": {
-          "title": "すべての Agent に、ひとつの接続レイヤー。",
-          "description": "データベースを Dory に一度設定すれば、Codex、Claude Code、その他の対応 Agent が同じ管理された接続レイヤーを使えます。",
-          "imageAlt": "Codex、Claude Code、その他の Agent 向け Dory MCP 設定",
-          "agents": ["Codex", "Claude Code", "その他の Agent"],
-          "doryLayer": "Dory MCP または CLI",
-          "databaseLayer": "管理されたデータベース接続"
+        "label": "For Agents",
+        "hero": {
+          "title": "AI エージェントのために作られたデータワークスペース",
+          "description": "AI エージェントに、永続的なデータベースアクセス、構造化された成果物、そしてデータを考察する場所を提供します。",
+          "primaryCta": "Dory MCP をインストール",
+          "secondaryCta": "Agent Runs を見る",
+          "runBadge": "完了した Agent Run",
+          "imageAlt": "接続、スキーマ探索、SQL、ResultSet、知見を表示する Dory Agent Run の詳細画面",
+          "imageCaption": "実際の Dory Agent Run。SQL、結果、知見がひとつの確認可能な履歴として残ります。"
         },
-        "tools": {
-          "title": "多数の低レベル機能ではなく、高レベルなツール。",
-          "description": "小さく焦点を絞ったカタログが実際のデータワークフローに対応し、ツール選択の混乱と不要な呼び出しを減らします。",
+        "context": {
+          "eyebrow": "ワークスペース文脈を持つ MCP",
+          "title": "接続だけでなく、文脈をエージェントへ。",
+          "description": "一般的な MCP は SQL を実行して行を返します。Dory は現在の作業、スキーマ、保存済みの知識、結果の参照を同じワークスペースに保ちます。",
+          "temporaryLabel": "一時的なデータベース MCP",
+          "temporaryResult": "行を返して文脈を失う",
+          "doryLabel": "Dory Workspace Context",
           "items": [
-            "利用可能な接続を一覧表示",
-            "スキーマとテーブルを探索",
-            "読み取り専用 SQL を実行",
-            "ワークスペースタブを作成・管理",
-            "保存済みクエリにアクセス"
+            { "title": "接続", "description": "現在のデータソースと安全な実行境界。" },
+            { "title": "スキーマメタデータ", "description": "テーブル、列、型、リレーション。" },
+            { "title": "現在の Agent Run", "description": "現在の目標、手順、SQL、知見。" },
+            { "title": "ワークスペースタブ", "description": "人が開いて編集できる分析単位。" },
+            { "title": "保存済みクエリ", "description": "チームが再利用できる検証済み SQL。" },
+            { "title": "ResultSet 参照", "description": "再利用可能な結果への永続的なリンク。" }
           ]
         },
         "artifacts": {
-          "title": "Agent は答えだけでなく、作業を作成します。",
-          "description": "有用なクエリはすべて、編集可能な SQL タブ、永続的な結果セット、または大きなワークスペースの一部になります。",
-          "modes": [
-            {
-              "title": "実行のみ",
-              "description": "ワークスペースが不要なときは結果を直接返します。"
-            },
-            {
-              "title": "新しいタブを作成",
-              "description": "新しい確認可能な分析単位を開始します。"
-            },
-            {
-              "title": "既存タブを継続",
-              "description": "進行中の作業に次のステップを追加します。"
-            },
-            {
-              "title": "タブ内容を置換",
-              "description": "Run のコンテキストを保持したまま対象タブを更新します。"
-            }
-          ]
+          "eyebrow": "第一級の出力",
+          "title": "ResultSet は第一級の AI 成果物です",
+          "description": "エージェントは答えを返すだけではありません。確認、再利用、可視化、エクスポートができる構造化されたデータ成果物を作成します。",
+          "transientLabel": "一般的な MCP",
+          "lostLabel": "失われる",
+          "files": [
+            { "title": "manifest.json", "description": "成果物の識別子、状態、保存情報。" },
+            { "title": "schema.arrow", "description": "列名と型の機械可読なスキーマ。" },
+            { "title": "preview.json", "description": "すばやい確認のための有界プレビュー。" },
+            { "title": "data/*.parquet", "description": "大きな結果を効率よく扱う列指向データ。" },
+            { "title": "metadata / lineage", "description": "生成元の SQL、接続、Run への追跡情報。" }
+          ],
+          "createdBy": "Agent が作成",
+          "exampleMeta": "上位 100 顧客 · 1,000 万件の注文を分析",
+          "actions": ["Dory で開く", "フィルター", "チャート", "エクスポート", "分析を継続"]
         },
         "runs": {
+          "eyebrow": "永続的な Run 履歴",
           "title": "すべての Agent Run に、確認可能な履歴が残ります。",
-          "description": "Agent の作業は SQL、完全な結果、知見、読みやすいアクティビティを含む構造化 Run として保存され、チャット終了時に失われません。",
+          "description": "Run は実行ステップ、失敗や中間の試行、生成 SQL、ResultSet 参照、最終的な知見をひとつの読みやすい記録にまとめます。",
           "features": [
-            "クエリ、失敗、中間の試行を確認",
-            "完全な結果セットと生成された知見を開く",
-            "本物のワークスペースで生成 SQL を編集",
-            "別の Agent で同じタスクを継続"
+            "スキーマ探索とツール呼び出しを追跡",
+            "失敗と中間の SQL 試行を確認",
+            "知見を生成元の結果までたどる",
+            "同じ Run からワークスペースを開く"
           ],
-          "listAlt": "ステータス、データソース、生成物を表示する Dory Agent Runs 一覧",
-          "detailAlt": "要約、知見、アクティビティを表示する Dory Agent Run 詳細",
-          "workspaceAlt": "編集可能な SQL ワークスペースとして開いた Dory Agent Run"
+          "imageAlt": "状態、データソース、成果物を表示する Dory Agent Runs 一覧"
+        },
+        "handoff": {
+          "eyebrow": "人との引き継ぎ",
+          "title": "Agent の推論から、人との共同作業へ",
+          "description": "Agent と人が、同じ SQL、ResultSet、Run の文脈を開きます。人は推論を確認し、クエリを編集し、次の分析を続けられます。",
+          "steps": ["Agent の分析", "ワークスペースを開く", "人が確認", "SQL を編集", "フィルター / チャートを調整", "エクスポートまたは継続"],
+          "imageAlt": "Agent が生成した SQL と ResultSet を人が確認できる Dory ワークスペース"
         },
         "runtime": {
-          "label": "どこでも実行",
-          "title": "Desktop、ヘッドレス、リモート。",
-          "items": [
-            {
-              "title": "Dory Desktop",
-              "description": "ローカル接続、ワークスペース履歴、権限を再利用して対話的に作業します。"
-            },
-            {
-              "title": "Dory CLI",
-              "description": "Agent のそばや開発環境内で stdio を通じてヘッドレス実行します。"
-            },
-            {
-              "title": "Remote HTTP",
-              "description": "共有 Dory インスタンスの背後に、リモート環境のデータベースアクセスを集約します。"
-            }
+          "eyebrow": "CLI とヘッドレス実行",
+          "title": "エージェントが動く場所なら、どこでも Dory を実行",
+          "description": "コーディングエージェントや独自の自動化に、Dory のワークスペースを stdio または HTTP MCP で接続します。",
+          "agents": ["Codex", "Claude Code", "Cursor", "Custom Agent"],
+          "transports": ["stdio MCP", "HTTP MCP"],
+          "modes": [
+            { "title": "standalone", "description": "エージェントのそばで完全にヘッドレスで実行。" },
+            { "title": "desktop", "description": "Dory Desktop の接続とワークスペースを再利用。" },
+            { "title": "self-hosted", "description": "チーム管理の Dory 環境に接続。" }
           ]
+        },
+        "capabilities": {
+          "eyebrow": "ワークフロー全体",
+          "title": "AI データワークフローのために設計",
+          "description": "データベースの探索から、確認可能な成果物と人への引き継ぎまで。",
+          "taskLabel": "タスク",
+          "detailLabel": "Dory の役割",
+          "supportLabel": "対応",
+          "supportedLabel": "対応済み",
+          "items": [
+            { "task": "未知のデータベースを探索", "description": "接続、スキーマ、サンプルデータを段階的に調査。" },
+            { "task": "スキーマを理解", "description": "テーブル、列、型、リレーションを現在の文脈に保持。" },
+            { "task": "SQL を生成", "description": "実際のスキーマに基づき、確認可能な SQL を作成。" },
+            { "task": "分析を実行", "description": "読み取り専用の有界実行で結果とエラーを追跡。" },
+            { "task": "結果を保存", "description": "出力を永続的な ResultSet 成果物として保存。" },
+            { "task": "知見を可視化", "description": "同じ結果からフィルターやチャートを継続。" },
+            { "task": "人に引き継ぐ", "description": "SQL、結果、Run の文脈をワークスペースで開く。" },
+            { "task": "成果物をエクスポート", "description": "再利用可能な出力を下流のツールやチームへ渡す。" }
+          ]
+        },
+        "privacy": {
+          "eyebrow": "プライバシーと制御",
+          "title": "データはあなたの管理下に",
+          "description": "エージェントのデータアクセス、モデルプロバイダー、実行環境を、明確な境界の中で選択できます。",
+          "items": [
+            { "title": "読み取り専用 SQL の強制", "description": "Agent の SQL は読み取り専用として検証され、実行は有界です。データベース側でも読み取り専用アカウントを推奨します。" },
+            { "title": "ローカルまたはヘッドレス", "description": "Dory Desktop の近く、スタンドアロン CLI、または自分で管理する環境で実行できます。" },
+            { "title": "AI プロバイダーを選択", "description": "自分の AI プロバイダーとモデルを使い、組織の要件に合わせられます。" },
+            { "title": "独立した制御境界", "description": "データベース権限、Dory の実行、AI プロバイダーの監査を別々のレイヤーとして管理できます。" }
+          ],
+          "providerNote": "第三者の AI プロバイダーを有効にした場合、そのプロバイダーのデータ処理、保持、トレーニングに関するポリシーが適用されます。"
+        },
+        "cta": {
+          "eyebrow": "最初のワークフロー",
+          "title": "最初のデータエージェントを作る",
+          "description": "Dory MCP を接続し、エージェントにデータベース探索、分析、確認可能な作業の保存を任せましょう。",
+          "primary": "始める",
+          "secondary": "MCP ドキュメントを見る"
         }
       },
       "workspace": {
