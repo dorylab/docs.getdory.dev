@@ -45,6 +45,7 @@ export function PaintedProductFrame({
         alt=""
         fill
         aria-hidden="true"
+        priority={priority}
         sizes={sizes}
         className="-z-10 object-cover object-center dark:brightness-[0.42] dark:saturate-[0.78]"
       />

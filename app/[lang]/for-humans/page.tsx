@@ -8,9 +8,12 @@ import { PaintedProductFrame } from "@/components/painted-product-frame";
 import FooterSection from "@/components/sections/footer";
 import { getMarketingOgImage } from "@/lib/marketing-og";
 import { cn } from "@/lib/utils";
+import ActionsPreview from "@/public/actions-focus.png";
 import AutoCompletePreview from "@/public/auto-complete.png";
+import AskPreview from "@/public/ask-focus.png";
 import HeroPreview from "@/public/hero.png";
 import ChartsPreview from "@/public/charts.png";
+import ContextPreview from "@/public/context-focus.png";
 import EditDataPreview from "@/public/images/for-humans/dory-edit-data-pending-changes.png";
 import ImportDataPreview from "@/public/images/for-humans/dory-import-column-mapping.png";
 import ErdPreview from "@/public/images/for-humans/dory-schema-graph-erd.png";
@@ -18,6 +21,12 @@ import LargeResultSetPreview from "@/public/large-resultset-2.png";
 
 type PageProps = { params: Promise<{ lang: string }> };
 type TextItem = { title: string; description: string };
+
+const aiWorkflowItems = [
+  { key: "ask", image: AskPreview },
+  { key: "actions", image: ActionsPreview },
+  { key: "context", image: ContextPreview },
+] as const;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;
@@ -142,6 +151,7 @@ export default async function ForHumansPage({ params }: PageProps) {
               <PaintedProductFrame
                 src={AutoCompletePreview}
                 alt={t("agentHome.humans.workspace.completionImageAlt")}
+                priority
                 sizes="(max-width: 1023px) calc(100vw - 72px), 700px"
               />
             </div>
@@ -353,6 +363,57 @@ export default async function ForHumansPage({ params }: PageProps) {
                 alt={t("agentHome.humans.erd.imageAlt")}
                 sizes="(max-width: 1023px) calc(100vw - 72px), 700px"
               />
+            </div>
+          </section>
+
+          <section className="grid gap-10 border-b border-dory-line py-16 md:py-24">
+            <div className="grid gap-6 md:grid-cols-[0.78fr_1.22fr] md:items-end">
+              <h2
+                className={cn(
+                  "max-w-3xl text-4xl leading-[1.02] font-medium tracking-[-0.04em] text-balance md:text-6xl",
+                  isCjk && "leading-[1.08] tracking-[-0.035em]",
+                )}
+              >
+                {t.rich("aiNative.heading", {
+                  ask: (chunks) => <span>{chunks}</span>,
+                  act: (chunks) => <span className="text-brand">{chunks}</span>,
+                  stay: (chunks) => <span className="text-dory-muted">{chunks}</span>,
+                })}
+              </h2>
+              <p className="max-w-2xl text-base leading-7 text-dory-muted md:justify-self-end md:text-lg md:leading-8">
+                {t("aiNative.description")}
+              </p>
+            </div>
+
+            <div className="grid gap-4 lg:grid-cols-3">
+              {aiWorkflowItems.map(({ key, image }, index) => (
+                <article
+                  key={key}
+                  className="flex min-h-full flex-col justify-between border border-dory-line bg-dory-surface p-5 md:p-6"
+                >
+                  <div>
+                    <div className="mb-7 flex items-center justify-between text-sm text-dory-muted">
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      <span>{t(`aiNative.tabs.${key}.label`)}</span>
+                    </div>
+                    <h3 className="text-2xl leading-tight font-medium text-balance">
+                      {t(`aiNative.tabs.${key}.title`)}
+                    </h3>
+                    <p className="mt-3 text-sm leading-6 text-dory-muted">
+                      {t(`aiNative.tabs.${key}.description`)}
+                    </p>
+                  </div>
+
+                  <div className="mt-8 overflow-hidden border border-dory-line bg-[#0b0b0b] p-1.5">
+                    <Image
+                      src={image}
+                      alt={t(`aiNative.tabs.${key}.imageAlt`)}
+                      sizes="(max-width: 1023px) calc(100vw - 72px), 380px"
+                      className="aspect-[1.08/1] w-full bg-black object-cover object-left-top lg:aspect-[1.03/1]"
+                    />
+                  </div>
+                </article>
+              ))}
             </div>
           </section>
 

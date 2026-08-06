@@ -777,12 +777,12 @@
     "aiNative": {
       "badge": "AI-native workflow",
       "heading": "<ask>Ask.</ask> <act>Act.</act> <stay>Stay grounded.</stay>",
-      "description": "No context switching. No hallucinated fields. Just accurate SQL and real results.",
+      "description": "AI that understands your database, your workflow, and your results.",
       "tabs": {
         "ask": {
           "label": "Ask",
-          "title": "Ask anything. No made-up columns.",
-          "description": "Schema-aware autocomplete and SQL generation keep the AI honest — every suggestion is based on real tables, real fields, and real joins.",
+          "title": "Ask with your database context.",
+          "description": "Dory understands your schema, SQL, and result sets. Generate queries and explore data using real database knowledge.",
           "imageAlt": "Dory Ask AI turning a natural-language request into SQL and a chart",
           "pills": {
             "pill1": "Schema-aware",
@@ -791,9 +791,9 @@
           }
         },
         "actions": {
-          "label": "Actions",
-          "title": "Do more than chat — take action.",
-          "description": "Run transformations, save and share queries, and trigger common analytics tasks right from the workflow — no copy-paste, no tab hopping.",
+          "label": "Action",
+          "title": "Go from answers to actions.",
+          "description": "Fix SQL, optimize queries, create charts, and continue analysis directly in your workspace.",
           "imageAlt": "Dory AI actions for fixing, optimizing, rewriting, and aggregating SQL",
           "pills": {
             "pill1": "No tab hopping",
@@ -803,8 +803,8 @@
         },
         "context": {
           "label": "Context",
-          "title": "Context that keeps you in control.",
-          "description": "Dory tracks what you’re working on — tables, relationships, and recent queries — so results stay consistent across Ask, Action, and Context.",
+          "title": "Your context stays with you.",
+          "description": "Current SQL, selected data, relationships, and recent queries keep AI aligned with your work.",
           "imageAlt": "Dory AI context showing the current editor SQL and selection",
           "pills": {
             "pill1": "Tables & relationships",

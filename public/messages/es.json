@@ -536,13 +536,13 @@
     },
     "aiNative": {
       "badge": "Flujo de trabajo nativo de IA",
-      "heading": "<ask>Ask.</ask><act>Act.</act><stay>Mantente conectado a tierra.</stay>",
-      "description": "Sin cambio de contexto. Sin campos alucinados. SimplementeSQLpreciso y resultados reales.",
+      "heading": "<ask>Pregunta.</ask> <act>Actúa.</act> <stay>Siempre con fundamento.</stay>",
+      "description": "Una IA que entiende tu base de datos, tu flujo de trabajo y tus resultados.",
       "tabs": {
         "ask": {
-          "label": "Preguntar",
-          "title": "Pregunta cualquier cosa. Sin columnas inventadas.",
-          "description": "El autocompletado con reconocimiento de esquemas y la generaciónSQLmantienen la IA honesta: cada sugerencia se basa en tablas reales, campos reales y uniones reales.",
+          "label": "Pregunta",
+          "title": "Pregunta con el contexto de tu base de datos.",
+          "description": "Dory entiende tu esquema, tu SQL y tus conjuntos de resultados. Genera consultas y explora datos basándose en el conocimiento real de tu base de datos.",
           "imageAlt": "Dory Ask AI convierte una solicitud en lenguaje natural en SQL y un gráfico",
           "pills": {
             "pill1": "Consciente de esquemas",
@@ -551,9 +551,9 @@
           }
         },
         "actions": {
-          "label": "Comportamiento",
-          "title": "Haga más que chatear: actúe.",
-          "description": "Ejecute transformaciones, guarde y comparta consultas y active tareas de análisis comunes directamente desde el flujo de trabajo, sin copiar y pegar ni saltar entre pestañas.",
+          "label": "Acción",
+          "title": "Pasa de las respuestas a la acción.",
+          "description": "Corrige SQL, optimiza consultas, crea gráficos y continúa el análisis directamente en tu espacio de trabajo.",
           "imageAlt": "Acciones de IA de Dory para corregir, optimizar, reescribir y agregar SQL",
           "pills": {
             "pill1": "Sin saltos de pestañas",
@@ -563,8 +563,8 @@
         },
         "context": {
           "label": "Contexto",
-          "title": "Contexto que te mantiene en control.",
-          "description": "Dory realiza un seguimiento de en qué estás trabajando (tablas, relaciones y consultas recientes) para que los resultados se mantengan consistentes en Pregunta, Acción y Contexto.",
+          "title": "Tu contexto te acompaña.",
+          "description": "El SQL actual, los datos seleccionados, las relaciones y las consultas recientes mantienen a la IA alineada con tu trabajo.",
           "imageAlt": "Contexto de IA de Dory con el SQL del editor y la selección actuales",
           "pills": {
             "pill1": "Tablas y relaciones",

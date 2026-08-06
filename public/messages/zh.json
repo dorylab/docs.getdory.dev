@@ -536,13 +536,13 @@
     },
     "aiNative": {
       "badge": "原生 AI 工作流",
-      "heading": "<ask>提问。</ask> <act>行动。</act> <stay>保持脚踏实地。</stay>",
-      "description": "无需切换上下文。没有杜撰字段。只有准确的 SQL 和真实结果。",
+      "heading": "<ask>提问。</ask> <act>行动。</act> <stay>始终有据可依。</stay>",
+      "description": "理解你的数据库、工作流和结果的 AI。",
       "tabs": {
         "ask": {
           "label": "提问",
-          "title": "提问任何问题。没有虚构的字段。",
-          "description": "模式感知的自动补全和 SQL 生成让 AI 保持真实 —— 每个建议都基于真实的表、字段与关联。",
+          "title": "结合数据库上下文提问。",
+          "description": "Dory 理解你的 Schema、SQL 和结果集，基于真实的数据库知识生成查询并探索数据。",
           "imageAlt": "Dory Ask AI 将自然语言请求转成 SQL 与图表",
           "pills": {
             "pill1": "模式感知",
@@ -552,8 +552,8 @@
         },
         "actions": {
           "label": "行动",
-          "title": "不仅仅对话 —— 直接执行操作。",
-          "description": "从工作流内运行转换、保存和分享查询，并触发常见分析任务 —— 无需复制粘贴、无需切换标签。",
+          "title": "从答案直接走向行动。",
+          "description": "直接在当前工作区修复 SQL、优化查询、创建图表并继续分析。",
           "imageAlt": "Dory AI Actions 提供修复、优化、重写和聚合 SQL 操作",
           "pills": {
             "pill1": "不跳标签",
@@ -563,8 +563,8 @@
         },
         "context": {
           "label": "上下文",
-          "title": "保持掌控的上下文。",
-          "description": "Dory 跟踪你正在处理的表、关系和最近的查询，让 Ask、Action 和 Context 之间的结果保持一致。",
+          "title": "上下文始终伴随你的工作。",
+          "description": "当前 SQL、选中的数据、数据关系和最近查询会持续帮助 AI 与你的工作保持一致。",
           "imageAlt": "Dory AI Context 展示当前编辑器 SQL 与选中内容",
           "pills": {
             "pill1": "表与关系",
