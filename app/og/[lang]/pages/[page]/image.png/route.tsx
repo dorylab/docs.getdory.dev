@@ -7,7 +7,7 @@ import {
   type MarketingOgPage
 } from '@/lib/marketing-og';
 import { DoryOgImage, HomeOgImage } from '@/lib/og-image';
-import { getHomeOgScreenshotDataUrl, getOgLogoDataUrl } from '@/lib/og-logo';
+import { getHomeOgHeroDataUrl, getOgLogoDataUrl } from '@/lib/og-logo';
 
 const pages = ['home', 'blog', 'download', 'for-agents'] satisfies MarketingOgPage[];
 
@@ -27,15 +27,14 @@ export async function GET(
   const logoSrc = await getOgLogoDataUrl();
 
   if (page === 'home') {
-    const screenshotSrc = await getHomeOgScreenshotDataUrl();
+    const screenshotSrc = await getHomeOgHeroDataUrl();
 
     return new ImageResponse(
       (
         <HomeOgImage
-          title={content.title}
-          description={content.description}
           logoSrc={logoSrc}
           screenshotSrc={screenshotSrc}
+          tagline={content.tagline ?? content.title}
         />
       ),
       {

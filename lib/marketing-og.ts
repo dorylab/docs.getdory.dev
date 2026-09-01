@@ -6,7 +6,7 @@ import { defaultLanguage, type Language } from '@/lib/i18n';
 export type MarketingOgPage = 'home' | 'blog' | 'download' | 'for-agents';
 
 const siteName = 'Dory';
-const homeOgImageVersion = '20260720-humans-agents';
+const homeOgImageVersion = '20260901-hero-dark';
 const forAgentsOgImageVersion = '20260807-agent-workspace';
 const homeTitles: Partial<Record<Language, string>> = {
   en: 'Dory - SQL workspace for humans and agents',
@@ -77,6 +77,7 @@ export async function getMarketingOgContent(
   return {
     title: homeTitles[locale] ?? homeTitles[defaultLanguage] ?? siteName,
     description: t('heroDescription'),
+    tagline: t('heroTitle'),
     site: siteName,
     label: 'SQL Workspace',
     tone: 'default' as const
