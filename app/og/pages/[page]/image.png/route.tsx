@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 
 import {
   getMarketingOgContent,
+  homeOgImageSize,
   type MarketingOgPage
 } from '@/lib/marketing-og';
 import { DoryOgImage, HomeOgImage } from '@/lib/og-image';
@@ -37,10 +38,7 @@ export async function GET(
           tagline={content.tagline ?? content.title}
         />
       ),
-      {
-        width: 1200,
-        height: 630
-      }
+      homeOgImageSize
     );
   }
 

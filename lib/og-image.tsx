@@ -311,6 +311,8 @@ export function DoryOgImage({
   );
 }
 
+const homeOgScale = 3;
+
 export function HomeOgImage({
   logoSrc,
   screenshotSrc,
@@ -325,8 +327,8 @@ export function HomeOgImage({
       style={{
         position: "relative",
         display: "flex",
-        width: "1200px",
-        height: "630px",
+        width: `${1200 * homeOgScale}px`,
+        height: `${630 * homeOgScale}px`,
         overflow: "hidden",
         background: "#050505",
         color: "#f7f7f4",
@@ -349,32 +351,30 @@ export function HomeOgImage({
           opacity: 0.24,
           backgroundImage:
             "linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)",
-          backgroundSize: "52px 52px",
+          backgroundSize: `${52 * homeOgScale}px ${52 * homeOgScale}px`,
         }}
       />
       <div
         style={{
           position: "absolute",
-          left: 62,
-          top: 132,
+          left: 62 * homeOgScale,
+          top: 132 * homeOgScale,
           display: "flex",
-          width: 1076,
-          height: 438,
-          overflow: "hidden",
-          border: "1px solid rgba(255, 255, 255, 0.22)",
-          borderRadius: 28,
+          width: 1076 * homeOgScale,
+          height: 676 * homeOgScale,
+          borderRadius: 28 * homeOgScale,
           background: "#111317",
-          boxShadow: "0 32px 90px rgba(0, 0, 0, 0.54)",
+          boxShadow: `0 ${32 * homeOgScale}px ${90 * homeOgScale}px rgba(0, 0, 0, 0.54)`,
         }}
       >
         <img
           src={screenshotSrc}
           alt="Dory SQL console"
-          width={1076}
-          height={438}
+          width={1076 * homeOgScale}
+          height={676 * homeOgScale}
           style={{
-            width: 1076,
-            height: 438,
+            width: 1076 * homeOgScale,
+            height: 676 * homeOgScale,
             objectFit: "cover",
             objectPosition: "center top",
           }}
@@ -383,28 +383,15 @@ export function HomeOgImage({
       <div
         style={{
           position: "absolute",
-          left: 62,
-          top: 132,
-          display: "flex",
-          width: 1076,
-          height: 438,
-          borderRadius: 26,
-          background:
-            "linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 38%, rgba(0, 0, 0, 0.1) 64%, rgba(0, 0, 0, 0.76) 100%)",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
           left: 0,
-          top: 38,
+          top: 38 * homeOgScale,
           display: "flex",
-          width: 1200,
-          height: 48,
+          width: 1200 * homeOgScale,
+          height: 48 * homeOgScale,
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
-          gap: 12,
+          gap: 12 * homeOgScale,
         }}
       >
         <div
@@ -412,37 +399,41 @@ export function HomeOgImage({
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            gap: 10,
+            gap: 10 * homeOgScale,
           }}
         >
           <div
             style={{
               display: "flex",
-              width: 36,
-              height: 36,
+              width: 36 * homeOgScale,
+              height: 36 * homeOgScale,
               alignItems: "center",
               justifyContent: "center",
               overflow: "hidden",
-              borderRadius: 9,
+              borderRadius: 9 * homeOgScale,
               background: "#ffffff",
             }}
           >
             <img
               src={logoSrc}
               alt="Dory"
-              width={36}
-              height={36}
-              style={{ width: 36, height: 36, objectFit: "contain" }}
+              width={36 * homeOgScale}
+              height={36 * homeOgScale}
+              style={{
+                width: 36 * homeOgScale,
+                height: 36 * homeOgScale,
+                objectFit: "contain",
+              }}
             />
           </div>
           <div
             style={{
               display: "flex",
-              fontSize: 38,
+              fontSize: 38 * homeOgScale,
               lineHeight: 1,
               fontWeight: 850,
               letterSpacing: 0,
-              textShadow: "0 12px 40px rgba(0, 0, 0, 0.4)",
+              textShadow: `0 ${12 * homeOgScale}px ${40 * homeOgScale}px rgba(0, 0, 0, 0.4)`,
             }}
           >
             Dory
@@ -452,16 +443,16 @@ export function HomeOgImage({
       <div
         style={{
           position: "absolute",
-          left: 92,
-          bottom: 38,
+          left: 92 * homeOgScale,
+          bottom: 18 * homeOgScale,
           display: "flex",
-          maxWidth: 760,
+          maxWidth: 760 * homeOgScale,
           color: "#ffffff",
-          fontSize: 29,
+          fontSize: 29 * homeOgScale,
           lineHeight: 1.2,
           fontWeight: 700,
           letterSpacing: 0,
-          textShadow: "0 2px 16px rgba(0, 0, 0, 0.88)",
+          textShadow: `0 ${2 * homeOgScale}px ${12 * homeOgScale}px rgba(0, 0, 0, 0.88)`,
         }}
       >
         {tagline}

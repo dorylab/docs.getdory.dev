@@ -6,8 +6,9 @@ import { defaultLanguage, type Language } from '@/lib/i18n';
 export type MarketingOgPage = 'home' | 'blog' | 'download' | 'for-agents';
 
 const siteName = 'Dory';
-const homeOgImageVersion = '20260901-hero-dark';
+const homeOgImageVersion = '20260901-hero-dark-3x';
 const forAgentsOgImageVersion = '20260807-agent-workspace';
+export const homeOgImageSize = { width: 3600, height: 1890 };
 const homeTitles: Partial<Record<Language, string>> = {
   en: 'Dory - SQL workspace for humans and agents',
   zh: 'Dory - 面向人类和 Agent 的 SQL 工作台',
@@ -24,10 +25,11 @@ export function getMarketingOgImage(page: MarketingOgPage, lang: string) {
         ? `?v=${forAgentsOgImageVersion}`
         : '';
 
+  const size = page === 'home' ? homeOgImageSize : { width: 1200, height: 630 };
+
   return {
     url: `/og${localeSegment}/pages/${page}/image.png${version}`,
-    width: 1200,
-    height: 630
+    ...size
   };
 }
 
